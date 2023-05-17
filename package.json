@@ -1,7 +1,7 @@
 {
-  "name": "gulp-2022",
-  "version": "1.6.0",
-  "description": "Сборка Gulp+Webpack+Babel",
+  "name": "aqua-profi",
+  "version": "0.0.1",
+  "description": "Aquaprofi Site",
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StarkElessar/gulp-2022.git"
+    "url": "git+https://github.com/StarkElessar/aqua-profi.git"
   },
   "keywords": [
     "gulp",
@@ -29,9 +29,9 @@
   "author": "Sergei Chevdar <serj.elessar@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/StarkElessar/gulp-2022/issues"
+    "url": "https://github.com/StarkElessar/aqua-profi/issues"
   },
-  "homepage": "https://github.com/StarkElessar/gulp-2022#readme",
+  "homepage": "https://github.com/StarkElessar/aqua-profi#readme",
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@babel/polyfill": "^7.12.1",
