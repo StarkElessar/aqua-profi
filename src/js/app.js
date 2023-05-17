@@ -14,7 +14,7 @@ import {
   addLoadedClass,
 } from './modules';
 
-// import BurgerMenu from './modules/BurgerMenu';
+import BurgerMenu from './modules/BurgerMenu';
 
 // import Tabs from 'modules/Tabs';
 
@@ -36,7 +36,7 @@ isWebp();
 // addLoadedClass();
 
 /* Модуль для работы с меню (Бургер) */
-// new BurgerMenu().init();
+new BurgerMenu().init();
 
 /**
  *  Библиотека для анимаций
@@ -62,3 +62,45 @@ isWebp();
 // togglePopupWindows();
 
 // const tabs = new Tabs('default-tabs', {});
+
+const toggleSubList = () => {
+  document.addEventListener('click', (event) => {
+    const { target } = event;
+    const activeLinks = document.querySelectorAll(
+      '[data-target="sublist"]._active'
+    );
+    const visibleSublists = document.querySelectorAll('.menu__sublist._open');
+
+    const closeElements = (elements, className) => {
+      elements.forEach((element) => element.classList.remove(className));
+    };
+
+    if (target.closest('[data-target="sublist"]')) {
+      event.preventDefault();
+      const currentLink = target.closest('[data-target="sublist"]');
+
+      if (!currentLink.classList.contains('_active')) {
+        closeElements(activeLinks, '_active');
+        closeElements(visibleSublists, '_open');
+
+        currentLink.classList.add('_active');
+        currentLink.nextElementSibling.classList.add('_open');
+      } else {
+        currentLink.classList.remove('_active');
+        currentLink.nextElementSibling.classList.remove('_open');
+      }
+    }
+
+    if (
+      !target.closest('.menu__sublist._open') &&
+      !target.closest('[data-target="sublist"]') &&
+      activeLinks.length
+    ) {
+      console.log(1234);
+      closeElements(activeLinks, '_active');
+      closeElements(visibleSublists, '_open');
+    }
+  });
+};
+
+toggleSubList();
