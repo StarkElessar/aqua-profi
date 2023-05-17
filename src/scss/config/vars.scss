@@ -1,31 +1,39 @@
 $maxWidth: 1920; // максимальная ширина страницы
 $minWidth: 320; // минимальная ширина телефона
-$maxWidthContainer: 1200; // ширина контейнера с учетом padding слева и справа
-$containerWidth: 1160; // ширина контейнера из макета
+$maxWidthContainer: 1230; // ширина контейнера с учетом padding слева и справа
+$containerWidth: 1200; // ширина контейнера из макета
 
 $mainOffset: 15; // отступы безопасности для контейнера
-$mainFont: ''; // !указать здесь основное семейство шрифта
+$mainFont: 'Exo2'; // !указать здесь основное семейство шрифта
 $mainWeight: 400; // !указать здесь основное начертание шрифта
 
 $headerHeight: 100;
 $footerHeight: 100;
 
-$mainRadius: rem(10);
+$main-radius: rem(10);
 
-$whiteColor: #fff;
-$blackColor: #131313;
-$grayColor: #6f6f6f;
-$redColor: #ff4040;
+$red-error: #fa7c7c;
+$white-100: #fff;
+$black-80: #333;
+$black-25: #bfbfbf;
+$black-10: #e6e6e6;
+$black-5: #f2f2f2;
+$blue-dark: #22374d;
+$blue-100: #396798;
+$blue-hover: #4589cc;
+$blue-disable: #53687f;
+$blue-15: #e1e8f0;
+$blue-5: #f5f7fa;
 
-$firstAccentColor: $blackColor;
-$secondAccentColor: $redColor;
+$firstAccentColor: $blue-100;
+$secondAccentColor: $red-error;
 
 $fontFamily: $mainFont, sans-serif; // Семейство шрифта по умолчанию
-$fontColor: $blackColor; // Цвет шрифта по умолчанию
+$fontColor: $black-80; // Цвет шрифта по умолчанию
 $fontSize: 16; // Размер шрифта по умолчанию
 $fontWeight: $mainWeight; // Жирность шрифта по умолчанию
 
-$standartTrans: all 280ms ease-in-out 0ms;
+$default-trans: all 280ms ease-in-out 0ms;
 
 $btnBoxShadow: 0px 2px 3px rgba(#000, 10%), 0px 8px 3px rgba(#000, 10%);
 
