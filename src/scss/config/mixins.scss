@@ -111,7 +111,12 @@
     }
   }
 }
+@mixin grid-cards($type: fit, $min: rem(290), $max: 1fr) {
+	display: grid;
+  grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+	@content;
 
+}
 // !:not (last-child)
 @mixin notLast() {
   &:not(:last-child) {

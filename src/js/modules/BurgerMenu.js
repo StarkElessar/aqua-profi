@@ -16,7 +16,17 @@ class BurgerMenu extends Popup {
         if (target.closest('.icon-menu')) {
           this.html.classList.toggle('menu-open');
           this.toggleBodyLock(this.html.classList.contains('menu-open'));
+        } else if (!target.closest('.menu') && !target.closest('.icon-menu')) {
+          this.html.classList.remove('menu-open')
+          this.body.classList.remove('lock')
+          this.body.style.paddingRight = 0
+          const header = document.querySelector('.header')
+          header.style.paddingRight = 0
         }
+      });
+      document.addEventListener('keyup', e => {
+        e.code === 'Escape' && this.html.classList.remove('menu-open');
+        this.body.classList.remove('lock');
       });
     }
   }
