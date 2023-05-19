@@ -1,0 +1,24 @@
+.overalls {
+    padding-top: rem(130);
+    @media (max-width: em(510)) {
+        padding-top: rem(110);
+    }
+    padding-bottom: rem(70);
+
+    // .overalls__container
+    &__container {
+    }
+
+    &__breadcrumbs {
+        &:not(:last-child) {
+            margin-bottom: rem(50);
+        }
+    }
+    // .overalls__title
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: rem(30);
+        }
+    }
+}

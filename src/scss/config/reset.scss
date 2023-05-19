@@ -4,6 +4,7 @@
   border: 0;
   box-sizing: border-box;
   color: $fontColor;
+  -webkit-tap-highlight-color: transparent;
 }
 
 *:before,
@@ -45,6 +46,7 @@ body {
 input,
 button,
 textarea {
+  background-color: inherit;
   font-family: inherit;
 }
 

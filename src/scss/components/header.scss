@@ -1,13 +1,9 @@
 // =====================================================================================================================
 .header {
-  position: relative;
+  position: fixed;
   width: 100%;
   background: $white-100;
-  transition: $default-trans;
-
-  .menu-open & {
-    z-index: 200;
-  }
+  z-index: 200;
 
   &.sticky {
     // ..стили для липкого хедера
@@ -81,9 +77,9 @@
   @include mediaMx(990) {
     position: fixed;
     bottom: 0;
-    left: -100%;
+    left: calc(-100% - rem(360));
     width: rem(360);
-    height: calc(100% - 80px);
+    height: calc(100% - rem(80));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -157,7 +153,7 @@
   // .menu__sublist
   &__sublist {
     position: absolute;
-    top: rem(50);
+    top: rem(30);
     display: flex;
     flex-direction: column;
     gap: rem(15);
@@ -173,7 +169,7 @@
     &._open {
       visibility: visible;
       opacity: 0.9;
-      top: rem(60);
+      top: rem(48);
     }
 
     .menu__link {
@@ -188,6 +184,7 @@
 
   // .menu__link
   &__link {
+    transition: color 0.3s ease;
     display: flex;
     align-items: center;
     gap: rem(6);
@@ -203,6 +200,7 @@
         svg {
           path {
             fill: $blue-hover;
+            transition: fill 0.3s ease;
           }
         }
       }
@@ -213,7 +211,7 @@
 
       span {
         transform: rotate(180deg);
-
+        
         svg {
           path {
             fill: $blue-hover;
@@ -263,7 +261,7 @@
     span,
     &::before,
     &::after {
-      content: '';
+      content: "";
       transition: all 300ms ease 0ms;
       right: 0;
       position: absolute;

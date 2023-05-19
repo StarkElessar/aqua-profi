@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/head.html', {
+    'title': 'Стирка и уход за спецодеждой'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/header.html', {})
+            <main class="page">
+                <section class="wash">
+                    <div class="wash__container">
+                        <nav class="breadcrumbs wash__breadcrumbs">
+                            <ul class="breadcrumbs__list">
+                                <li class="breadcrumbs__item">
+                                    <a class="breadcrumbs__link" href="index.html">Главная страница Аква-Профи</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <h1 class="title wash__title">стирка и уход за спецодеждой</h1>
+                        <div class="wash__info">
+                            <div class="wash__image-ibg">
+                                <img src="images/wash/wash.jpg" alt="Стирка">
+                            </div>
+                            <div class="wash__text">
+                                <p>
+                                    Вы приобрели рабочую одежду и нуждаетесь в ее обслуживании? Вы цените свое время и следите за внешним видом своих работников?
+                                </p>
+                                <p>
+                                    Компания «Аква-Профи» оказывает услугу стирки и ремонта рабочей одежды. При этом вся одежда маркируется несмываемым штрихкодом, который обеспечивает сохранность информации о проведенном ремонте, степени износа и данных владельца, что поможет контролировать состояние одежды Ваших работников.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/footer.html', {})
+        </div>
+        @@include('html/script.html', {})
+    </body>
+</html>
