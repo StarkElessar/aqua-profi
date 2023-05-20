@@ -16,17 +16,22 @@ class BurgerMenu extends Popup {
         if (target.closest('.icon-menu')) {
           this.html.classList.toggle('menu-open');
           this.toggleBodyLock(this.html.classList.contains('menu-open'));
-        } else if (!target.closest('.menu') && !target.closest('.icon-menu')) {
-          this.html.classList.remove('menu-open')
-          this.body.classList.remove('lock')
-          this.body.style.paddingRight = 0
-          const header = document.querySelector('.header')
-          header.style.paddingRight = 0
+        }
+
+        if (
+          target === this.body &&
+          !target.closest('.menu') &&
+          !target.closest('.icon-menu')
+        ) {
+          this.menuClose();
+          this.toggleBodyLock(this.html.classList.contains('menu-open'));
         }
       });
-      document.addEventListener('keyup', e => {
-        e.code === 'Escape' && this.html.classList.remove('menu-open');
-        this.body.classList.remove('lock');
+
+      document.addEventListener('keyup', ({ code }) => {
+        if (this.isMenuOpen && code === 'Escape') {
+          this.menuClose();
+        }
       });
     }
   }
@@ -45,6 +50,14 @@ class BurgerMenu extends Popup {
   menuClose() {
     this.toggleBodyLock(false);
     this.html.classList.remove('menu-open');
+  }
+
+  /**
+   * Check if the menu is open.
+   * @returns {boolean} True if the menu is open, false otherwise.
+   */
+  get isMenuOpen() {
+    return this.html.classList.contains('menu-open');
   }
 }
 
