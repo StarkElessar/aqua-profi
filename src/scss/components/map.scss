@@ -1,0 +1,61 @@
+.map-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #000;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  pointer-events: none;
+  box-sizing: border-box;
+  background-color: rgba(#000, 55%);
+  transition: opacity 0.7s ease;
+
+  &.is-active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - rem(24));
+    left: calc(50% - rem(24));
+    width: rem(48);
+    height: rem(48);
+    animation: rotation 1s linear infinite;
+    border: solid rem(8) #fff;
+    border-left-color: transparent;
+    border-radius: 50%;
+  }
+}
+
+.map-container {
+  position: relative;
+  background-color: #fff;
+  background-image: url('./../images/map-preload.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(#000, 20%);
+  box-shadow: 0 0 rem(10) rgba(#000, 10%);
+  overflow: hidden;
+
+  #map-yandex {
+    position: relative;
+    z-index: 7;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  [class*='-gototech'] {
+    display: none;
+  }
+}
