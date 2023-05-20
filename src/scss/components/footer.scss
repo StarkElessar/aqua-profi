@@ -161,37 +161,6 @@
     justify-content: space-between;
   }
 
-  // .info-footer__call
-  &__call {
-    display: flex;
-    height: fit-content;
-    align-items: center;
-    gap: rem(20);
-  }
-
-  // .info-footer__icon
-  &__icon {
-    width: rem(32);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: rem(32);
-  }
-
-  // .info-footer__link
-  &__link {
-    transition: color 0.3s ease;
-    @media (any-hover: hover) {
-      &:hover {
-        color: $blue-100;
-      }
-    }
-    white-space: nowrap;
-    font-size: rem(18);
-    line-height: math.div(22, 18);
-    color: $white-100;
-  }
-
   // .info-footer__address
   &__address {
     font-style: normal;

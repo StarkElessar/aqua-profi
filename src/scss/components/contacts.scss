@@ -1,0 +1,200 @@
+.contacts {
+    padding-top: rem(130);
+    @media (max-width: em(510)) {
+        padding-top: rem(110);
+    }
+    padding-bottom: rem(70);
+
+    // .contacts__container
+    &__container {
+    }
+
+    &__breadcrumbs {
+        &:not(:last-child) {
+            margin-bottom: rem(50);
+        }
+    }
+    // .contacts__title
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: rem(30);
+        }
+    }
+}
+
+.info-contacts {
+    background: $white-100;
+    border-radius: rem(8);
+
+    // .info-contacts__head
+    &__head {
+        padding: rem(50) rem(30);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    &__info {
+        display: flex;
+        // align-items: center;
+        flex-wrap: wrap;
+        flex: 0 1 auto;
+        gap: rem(30);
+    }
+    // .info-contacts__address
+    &__address {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 500;
+        font-size: rem(24);
+        line-height: rem(28);
+        color: $black-80;
+    }
+    // .info-contacts__company
+    &__company {
+        font-size: rem(18);
+        line-height: math.div(22, 18);
+        color: $black-80;
+    }
+    // .info-contacts__items
+    &__items {
+        max-width: rem(460);
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(20);
+    }
+    // .info-contacts__item
+    &__item {
+        > .contact__link {
+            color: $black-80;
+        }
+    }
+    // .info-contacts__map
+    &__map {
+        height: rem(550);
+        background-color: $blue-100;
+        @media (max-width: em(768)) {
+            height: rem(420);
+        }
+        @media (max-width: em(510)) {
+            height: rem(275);
+        }
+    }
+    // .info-contacts__foot
+    &__foot {
+        padding: rem(50) rem(30);
+        @media (max-width: em(510)) {
+            padding: rem(30) rem(20) rem(40);
+        }
+    }
+    // .info-contacts__title
+    &__title {
+        font-family: "Rubik";
+        font-weight: 500;
+        font-size: rem(24);
+        line-height: math.div(28, 24);
+        color: $black-80;
+        text-align: center;
+        @media (max-width: em(510)) {
+            font-size: rem(18);
+            line-height: math.div(21, 18);
+        }
+        &:not(:last-child) {
+            margin-bottom: rem(35);
+            @media (max-width: em(510)) {
+                margin-bottom: rem(15);
+            }
+        }
+    }
+    // .info-contacts__form
+    &__form {
+        margin: 0 auto;
+    }
+}
+.form-contacts {
+    max-width: rem(1010);
+    display: flex;
+    align-items: flex-end;
+    @media (max-width: em(768)) {
+        flex-wrap: wrap;
+    }
+    gap: rem(10);
+
+    @media (max-width: em(510)) {
+        gap: rem(20);
+    }
+
+    // .form-contacts__column
+    &__column {
+        display: grid;
+        gap: rem(8);
+        @media (min-width: em(768)) {
+            &:nth-child(3) {
+                flex: 1 1 rem(296);
+            }
+        }
+        @media (max-width: em(768)) {
+            &:nth-child(1) {
+                flex: 0 1 rem(160);
+            }
+            &:nth-child(2) {
+                flex: 0 1 rem(160);
+            }
+            &:nth-child(3) {
+                flex: 0 1 rem(280);
+            }
+        }
+        @media (max-width: em(510)) {
+            &:nth-child(1) {
+                flex: 1 1 auto;
+            }
+            &:nth-child(2) {
+                flex: 1 1 auto;
+            }
+            &:nth-child(3) {
+                flex: 1 1 auto;
+            }
+        }
+    }
+    // .form-contacts__label
+    &__label {
+        font-weight: 500;
+        line-height: math.div(19, 16);
+        color: $black-80;
+        span {
+            color: #fa7c7c;
+        }
+    }
+    // .form-contacts__input
+    &__input {
+        background: $black-5;
+        border-radius: rem(8);
+        padding: rem(13) rem(15);
+        &::placeholder {
+            font-size: rem(18);
+            line-height: math.div(22, 18);
+            color: $black-25;
+            transition: opacity 0.3s ease;
+        }
+
+        &:focus {
+            &::placeholder {
+                opacity: 0;
+            }
+        }
+    }
+    // .form-contacts__button
+    &__button {
+        flex: 1 1 rem(296);
+        @media (max-width: em(768)) {
+            flex-grow: 0;
+            margin: 0 auto;
+            &:not(:first-child) {
+                margin-top: rem(30);
+            }
+        }
+        @media (max-width: em(510)) {
+            flex: 1 1 100%;
+        }
+    }
+}

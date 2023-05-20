@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/head.html', {
+    'title': 'контакты'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/header.html', {})
+            <main class="page">
+                <section class="contacts">
+                    <div class="contacts__container">
+                        <nav class="breadcrumbs contacts__breadcrumbs">
+                            <ul class="breadcrumbs__list">
+                                <li class="breadcrumbs__item">
+                                    <a class="breadcrumbs__link" href="index.html">Главная страница Аква-Профи</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <h1 class="title contacts__title">контакты</h1>
+                        <div class="info-contacts contacts__info">
+                            <div class="info-contacts__head">
+                                <div class="info-contacts__info">
+                                    <address class="info-contacts__address">
+                                        г. Минск, ул. Левкова д. 9, пом. 14
+                                    </address>
+                                    <div class="info-contacts__company">
+                                        ООО "Аква-Профи Ко"
+                                    </div>
+                                </div>
+                                <div class="info-contacts__items">
+                                    <div class="contact info-contacts__item">
+                                        <div class="contact__icon">
+                                            <img src="images/icons/viber.svg" alt="Вайбер">
+                                        </div>
+                                        <a href="tel:+375445800991" class="contact__link">+375 (44) 580 09 91</a>
+                                    </div>
+                                    <div class="contact info-contacts__item">
+                                        <div class="contact__icon">
+                                            <img src="images/icons/call.svg" alt="Сотовый телефон">
+                                        </div>
+                                        <a href="tel:+375173962786" class="contact__link">+375 (17) 396 27 86</a>
+                                    </div>
+                                    <div class="contact info-contacts__item">
+                                        <div class="contact__icon">
+                                            <img src="images/icons/phone.svg" alt="Телефон">
+                                        </div>
+                                        <a href="tel:+375445800991" class="contact__link">+375 (44) 580 09 91</a>
+                                    </div>
+                                    <div class="contact info-contacts__item">
+                                        <div class="contact__icon">
+                                            <img src="images/icons/email.svg" alt="Почта">
+                                        </div>
+                                        <a href="mailto:info@aquaprofi.by" class="contact__link">info@aquaprofi.by</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-contacts__map"></div>
+                            <div class="info-contacts__foot">
+                                <h2 class="info-contacts__title">Обратная связь</h2>
+                                <form action="#" class="form-contacts info-contacts__form">
+                                    <div class="form-contacts__column">
+                                        <label for="name" class="form-contacts__label">Имя <span>*</span></label>
+                                        <input class="form-contacts__input" type="text" id="name" name="name" placeholder="Иван">
+                                    </div>
+                                    <div class="form-contacts__column">
+                                        <label for="phone" class="form-contacts__label">Телефон <span>*</span></label>
+                                        <input class="form-contacts__input" type="tel" id="phone" name="phone" placeholder="+375331234567">
+                                    </div>
+                                    <div class="form-contacts__column">
+                                        <label for="email" class="form-contacts__label">Электронная почта</label>
+                                        <input class="form-contacts__input" type="email" id="email" name="email" placeholder="Ivan12345@example.by">
+                                    </div>
+                                    <button class="form-contacts__button button" type="submit">Заказать звонок</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/footer.html', {})
+        </div>
+        @@include('html/script.html', {})
+    </body>
+</html>

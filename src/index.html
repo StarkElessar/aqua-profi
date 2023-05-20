@@ -23,13 +23,52 @@
         "type": "Антистатическая"
         })
         @@include('html/clothing-card.html', {
-        "img": "images/complects/man-summer.jpg",
+        "img": "images/complects/man-summer-01.jpg",
         "alt": "Комплект мужской летний",
         "type": "Комплект мужской летний"
         })
-        
+
       </main>
       @@include('html/footer.html', {})
+    </div>
+    <!-- popups -->
+    <div class="popup" id="popup" aria-hidden="true">
+      <div class="popup__wrapper">
+        <div class="popup__content">
+          <button class="popup__close" type="button"></button>
+          <div class="popup__body">
+            <form action="#" class="form-popup popup__form">
+              <div class="form-popup__column form-popup__column--first">
+                <label for="name" class="form-popup__label">Имя <span>*</span></label>
+                <input class="form-popup__input" id="name" type="text" name="input" placeholder="Имя">
+              </div>
+              <fieldset class="form-popup__field">
+                <div class="form-popup__column">
+                  <label for="phone" class="form-popup__label">Телефон <span>*</span></label>
+                  <input class="form-popup__input" id="phone" type="tel:+3753319023" name="input" placeholder="+375 (33) 190-23">
+                </div>
+                <div class="form-popup__column">
+                  <label for="email" class="form-popup__label">Электронная почта</label>
+                  <input class="form-popup__input" id="email" type="email" name="input" placeholder="Электронная почта">
+                </div>
+                <div class="form-popup__column">
+                  <label for="name-company" class="form-popup__label">Название компании</label>
+                  <input class="form-popup__input" id="name-company" type="text" name="input" placeholder="Название компании">
+                </div>
+                <div class="form-popup__column">
+                  <label for="peoples" class="form-popup__label">Количество сотрудников</label>
+                  <input class="form-popup__input" id="peoples" type="text" name="input" placeholder="50 человек">
+                </div>
+              </fieldset>
+              <div class="form-popup__column">
+                <label for="message" class="form-popup__label">Название компании</label>
+                <textarea class="form-popup__input" id="message" name="message"></textarea>
+              </div>
+              <button class="form-popup__button button" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     @@include('html/script.html', {})
   </body>
