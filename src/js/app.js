@@ -15,6 +15,8 @@ import {
 } from './modules';
 
 import BurgerMenu from './modules/BurgerMenu';
+import initMap from './modules/yandexMapLoad.js';
+import { footerMenu } from './helpers/elementsNodeList.js';
 
 // import Tabs from 'modules/Tabs';
 
@@ -51,7 +53,7 @@ new BurgerMenu().init();
 // headerFixed();
 
 /**
- *  Открытие/закрытие модальных окон
+ * Открытие/закрытие модальных окон
  * Чтобы модальное окно открывалось и закрывалось
  * На окно повешай атрибут data-popup="<название окна>"
  * И на кнопку, которая вызывает окно так же повешай атрибут data-type="<название окна>"
@@ -63,17 +65,21 @@ new BurgerMenu().init();
 
 // const tabs = new Tabs('default-tabs', {});
 
+const setClassCollapsable = () => {
+  footerMenu.classList.toggle('collapsable', innerWidth <= 510);
+};
+
 const toggleSubList = () => {
+  const closeElements = (elements, className) => {
+    elements.forEach((element) => element.classList.remove(className));
+  };
+
   document.addEventListener('click', (event) => {
     const { target } = event;
     const activeLinks = document.querySelectorAll(
       '[data-target="sublist"]._active'
     );
     const visibleSublists = document.querySelectorAll('.menu__sublist._open');
-
-    const closeElements = (elements, className) => {
-      elements.forEach((element) => element.classList.remove(className));
-    };
 
     if (target.closest('[data-target="sublist"]')) {
       event.preventDefault();
@@ -96,11 +102,43 @@ const toggleSubList = () => {
       !target.closest('[data-target="sublist"]') &&
       activeLinks.length
     ) {
-      console.log(1234);
       closeElements(activeLinks, '_active');
       closeElements(visibleSublists, '_open');
     }
   });
 };
 
+const footerMenuCollapsable = ({ target }) => {
+  if (footerMenu.classList.contains('collapsable')) {
+    const trigger = target.closest('.column-footer__title');
+
+    if (trigger) {
+      if (!trigger.parentElement.classList.contains('open')) {
+        footerMenu
+          .querySelector('.column-footer.open')
+          ?.classList.remove('open');
+      }
+
+      trigger.parentElement.classList.toggle('open');
+    }
+  }
+};
+
 toggleSubList();
+setClassCollapsable();
+
+if (document.getElementById('map-yandex')) {
+  initMap();
+}
+
+document.addEventListener('click', footerMenuCollapsable);
+
+window.addEventListener('resize', () => {
+  setClassCollapsable();
+
+  if (footerMenu.classList.contains('collapsable')) {
+    document.addEventListener('click', footerMenuCollapsable);
+  } else {
+    document.removeEventListener('click', footerMenuCollapsable);
+  }
+});
