@@ -35,10 +35,13 @@
     <div class="popup" id="popup" aria-hidden="true">
       <div class="popup__wrapper">
         <div class="popup__content">
-          <button class="popup__close" type="button"></button>
+          <button class="popup__close" type="button">
+            @@include('html/svg/cross.html')
+          </button>
           <div class="popup__body">
+            <h3 class="popup__title">Заказать звонок</h3>
             <form action="#" class="form-popup popup__form">
-              <div class="form-popup__column form-popup__column--first">
+              <div class="form-popup__column form-popup__column_first">
                 <label for="name" class="form-popup__label">Имя <span>*</span></label>
                 <input class="form-popup__input" id="name" type="text" name="input" placeholder="Имя">
               </div>
