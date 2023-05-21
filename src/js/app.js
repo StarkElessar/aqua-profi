@@ -24,7 +24,7 @@ import Tabs from './modules/Tabs';
 
 // import AOS from 'aos'
 
-// import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Thumbs } from 'swiper';
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
@@ -128,6 +128,23 @@ const footerMenuCollapsable = ({ target }) => {
 
 toggleSubList();
 setClassCollapsable();
+
+if (document.querySelector('.product-slider')) {
+  const thumbsSwiper = new Swiper('.product-slider__thumbs', {
+    direction: 'vertical',
+    spaceBetween: 10,
+    slidesPerView: 3,
+    watchSlidesProgress: true,
+  });
+
+  new Swiper('.product-slider__main', {
+    modules: [Thumbs],
+    spaceBetween: 10,
+    thumbs: {
+      swiper: thumbsSwiper,
+    },
+  });
+}
 
 if (document.getElementById('map-yandex')) {
   initMap();
