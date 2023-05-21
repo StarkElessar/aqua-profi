@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/head.html', {
+    'title': 'дополнительные услуги'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/header.html', {})
+            <main class="page">
+                <section class="overalls">
+                    <div class="overalls__container">
+                        <nav class="breadcrumbs overalls__breadcrumbs">
+                            <ul class="breadcrumbs__list">
+                                <li class="breadcrumbs__item">
+                                    <a class="breadcrumbs__link" href="index.html">Главная страница Аква-Профи</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <h1 class="title overalls__title">Спецодежда</h1>
+                        <div class="tabs" data-tabs="catalog">
+                            <nav class="tabs__nav">
+                                <button class="tabs__trigger" type="button"><span></span>Антистатическая</button>
+                                <button class="tabs__trigger" type="button"><span></span>Огнестойкая</button>
+                                <button class="tabs__trigger" type="button"><span></span>Пищевая</button>
+                                <button class="tabs__trigger" type="button"><span></span>Летняя</button>
+                                <button class="tabs__trigger" type="button"><span></span>Утеплённая</button>
+                            </nav>
+                            <div class="tabs__content">
+                                <div class="tabs__panel">
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-02.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                </div>
+                                <div class="tabs__panel">
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-01.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/woman-summer-01.jpg",
+                                    "alt": "Комплект женский летний",
+                                    "type": "Комплект женский летний"
+                                    })
+                                </div>
+                                <div class="tabs__panel">
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/woman-summer-01.jpg",
+                                    "alt": "Комплект женский летний",
+                                    "type": "Комплект женский летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-02.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-03.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                </div>
+                                <div class="tabs__panel">
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-01.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/woman-summer-01.jpg",
+                                    "alt": "Комплект женский летний",
+                                    "type": "Комплект женский летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-02.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-03.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/woman-summer-02.jpg",
+                                    "alt": "Комплект женский летний",
+                                    "type": "Комплект женский летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-04.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/woman-summer-03.jpg",
+                                    "alt": "Комплект женскийлетний",
+                                    "type": "Комплект женский летний"
+                                    })
+                                </div>
+                                <div class="tabs__panel">
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-03.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/woman-summer-02.jpg",
+                                    "alt": "Комплект женский летний",
+                                    "type": "Комплект женский летний"
+                                    })
+                                    @@include('html/clothing-card.html', {
+                                    "img": "images/complects/man-summer-04.jpg",
+                                    "alt": "Комплект мужской летний",
+                                    "type": "Комплект мужской летний"
+                                    })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/footer.html', {})
+        </div>
+        @@include('html/script.html', {})
+    </body>
+</html>
