@@ -112,7 +112,13 @@ body {
     pointer-events: none;
   }
 
+  // .page_start
   &_start {
-    padding-top: rem($headerHeight);
+    padding-top: rem($header-height);
+  }
+
+  // .page_white
+  &_white {
+    background-color: $white-100;
   }
 }
