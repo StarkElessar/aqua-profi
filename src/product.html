@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html', {
+'title': 'Спецодежда - Летняя'
+})
+<body>
+<div class="wrapper">
+  @@include('html/header.html', {})
+  <main class="page page_start page_white">
+    <section class="product space-y">
+      <div class="product__container">
+        <nav class="breadcrumbs product__breadcrumbs">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="index.html">Главная страница Аква-Профи</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="catalog.html">Спецодежда</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="#">Летняя</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="product-preview">
+          <div class="product-slider">
+            <div class="swiper product-slider__thumbs swiper-thumbs">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+              </div>
+            </div>
+            <div class="swiper product-slider__main">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+              </div>
+            </div>
+          </div>
+          <div class="product-preview__info">
+            <h1 class="title product-preview__title">контакты</h1>
+            <ul class="product-tag product-preview__product-tag">
+              <li class="product-tag__item">куртка</li>
+              <li class="product-tag__item">брюки</li>
+              <li class="product-tag__item">полукомбинезон</li>
+            </ul>
+            <p>Варианты носки: куртка-брюки, куртка-полукомбинезон</p>
+            <button class="button product-preview__button" type="button">Оформить заявку</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('html/footer.html', {})
+</div>
+@@include('html/script.html', {})
+</body>
+</html>

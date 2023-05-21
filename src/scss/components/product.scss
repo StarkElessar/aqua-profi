@@ -1,0 +1,101 @@
+.product {
+  // .product__breadcrumbs
+  &__breadcrumbs {
+    margin-bottom: rem(50);
+  }
+}
+// ======================================================================================================================================================== //
+.product-tag {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: rem(10);
+
+  // .product-tag__item
+  &__item {
+    padding: rem(8) rem(10);
+    background-color: $black-5;
+    border-radius: rem(8);
+    font-size: rem(18);
+    line-height: prc(22, 18);
+
+    @include mediaMx(510) {
+      font-size: rem(16);
+      line-height: prc(19, 16);
+    }
+  }
+}
+// ======================================================================================================================================================== //
+.product-preview {
+  display: flex;
+  justify-content: space-between;
+  gap: rem(40);
+  // .product-preview__title
+  &__title {
+    margin-bottom: rem(20);
+    text-align: left;
+  }
+  // .product-preview__info
+  &__info {
+    p {
+      font-size: rem(18);
+      line-height: prc(22, 18);
+
+      @include mediaMx(510) {
+        font-size: rem(16);
+        line-height: prc(19, 16);
+      }
+    }
+  }
+
+  // .product-preview__product-tag
+  &__product-tag {
+    margin-bottom: rem(20);
+
+    @include mediaMx(510) {
+      margin-bottom: rem(15);
+    }
+  }
+
+  // .product-preview__button
+  &__button {
+    width: 100%;
+    max-width: rem(440);
+    margin-top: rem(30);
+
+    @include mediaMx(510) {
+      margin-top: rem(25);
+    }
+  }
+}
+// ======================================================================================================================================================== //
+.product-slider {
+  display: flex;
+  gap: rem(20);
+
+  // .product-slider__thumbs
+  &__thumbs {
+    max-height: rem(560);
+
+    .swiper-slide {
+      width: 120px;
+      height: 145px;
+      border-radius: rem(8);
+      border: 2px solid transparent;
+      background-color: $black-5;
+
+      &.swiper-slide-thumb-active {
+        border-color: #4589cc;
+      }
+    }
+  }
+
+  // .product-slider__main
+  &__main {
+    max-width: rem(460);
+
+    .swiper-slide {
+      background-color: $blue-100;
+    }
+  }
+}
