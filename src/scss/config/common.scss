@@ -1,6 +1,15 @@
+.space-y {
+  padding: rem(50) 0 rem(70);
+
+  @media (max-width: em(510)) {
+    padding-top: rem(30);
+  }
+}
+// ======================================================================================================================================================== //
 .breadcrumbs {
   white-space: nowrap;
 
+  // .breadcrumbs__list
   &__list {
     display: flex;
     gap: rem(7);
@@ -8,6 +17,7 @@
     overflow-y: hidden;
   }
 
+  // .breadcrumbs__item
   &__item {
     display: flex;
     align-items: center;
@@ -19,6 +29,7 @@
     }
   }
 
+  // .breadcrumbs__link
   &__link {
     font-weight: 500;
     line-height: prc(19, 16);
@@ -357,6 +368,7 @@
   height: fit-content;
   align-items: center;
   gap: rem(20);
+
   // .contact__icon
   &__icon {
     width: rem(32);
@@ -368,16 +380,17 @@
 
   // .contact__link
   &__link {
+    white-space: nowrap;
+    font-size: rem(18);
+    line-height: prc(22, 18);
+    color: $white-100;
     transition: color 0.3s ease;
+
     @media (any-hover: hover) {
       &:hover {
         color: $blue-100;
       }
     }
-    white-space: nowrap;
-    font-size: rem(18);
-    line-height: prc(22, 18);
-    color: $white-100;
   }
 }
 // ======================================================================================================================================================== //
@@ -397,6 +410,10 @@
   @media (any-hover: hover) {
     &:hover {
       background-color: $blue-hover;
+    }
+
+    &:active {
+      background-color: $blue-dark;
     }
   }
 }
