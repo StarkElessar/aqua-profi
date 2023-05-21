@@ -33,6 +33,7 @@
   line-height: prc(43, 36);
   text-transform: uppercase;
   color: #333333;
+
   @include mediaMx(510) {
     font-size: rem(24);
     line-height: prc(28, 24);
@@ -43,16 +44,19 @@
   display: grid;
   justify-items: center;
   max-width: rem(365);
+
   // .advantage__icon
   &__icon {
     &:not(:last-child) {
       margin-bottom: rem(10);
     }
+
     img {
       width: rem(72);
       height: rem(72);
     }
   }
+
   // .advantage__title
   &__title {
     font-family: 'Rubik', sans-serif;
@@ -66,6 +70,7 @@
       margin-bottom: rem(20);
     }
   }
+
   // .advantage__text
   &__text {
     text-align: center;
@@ -95,6 +100,7 @@
       margin-bottom: rem(15);
     }
   }
+
   // .complect-item__where
   &__where {
     font-size: rem(18);
@@ -113,6 +119,7 @@
   &__image-ibg_contain {
     height: rem(290);
   }
+
   // .clothing-card__type
   &__type {
     font-family: 'Rubik', sans-serif;
@@ -132,20 +139,35 @@
   display: grid;
   position: relative;
 
+  &:hover {
+    .complect-card__type {
+      color: $blue-hover;
+    }
+
+    .complect-card__image-ibg_contain {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
   // .complect-card__label
   &__label {
     position: absolute;
     top: rem(20);
     z-index: 3;
     left: rem(20);
+
     @include mediaMx(1000) {
+      top: rem(15);
+      left: rem(15);
+
       img {
         width: rem(46);
         height: rem(24);
       }
-      top: rem(15);
-      left: rem(15);
     }
+
     @include mediaMx(510) {
       img {
         width: rem(30);
@@ -153,54 +175,73 @@
       }
     }
   }
-  // .complect-card__image-ibg
+
+  // .complect-card__image-ibg_contain
   &__image-ibg_contain {
     height: rem(360);
+    overflow: hidden;
+
+    img {
+      transition: $default-trans;
+    }
+
     @media (max-width: em(1000)) {
       height: rem(280);
     }
+
     @include mediaMx(480) {
       height: rem(250);
     }
+
     @include mediaMx(390) {
       height: rem(185);
     }
   }
+
   // .complect-card__type
   &__type {
-    @include mediaMx(1000) {
-      padding-bottom: rem(20);
-    }
-    @include mediaMx(510) {
-      font-size: rem(16);
-      line-height: prc(19, 16);
-    }
+    padding: 0 rem(10) rem(40) rem(10);
     font-size: rem(18);
     line-height: prc(22, 18);
     text-align: center;
     color: $black-80;
-    padding: 0 rem(10) rem(40) rem(10);
+    transition: $default-trans;
+
+    @include mediaMx(1000) {
+      padding-bottom: rem(20);
+    }
+
+    @include mediaMx(510) {
+      font-size: rem(16);
+      line-height: prc(19, 16);
+    }
+
+    @include mediaMx(360) {
+      padding: rem(4) rem(4) rem(10);
+    }
   }
 }
 // ======================================================================================================================================================== //
 .tabs {
   gap: rem(10);
+  display: grid;
+  grid-template-columns: rem(300) 1fr;
 
-  @include mediaMx(1000) {
+  @include mediaMx(1100) {
     grid-template-columns: rem(230) 1fr;
   }
 
-  @include mediaMn(768) {
-    display: grid;
-    grid-template-columns: rem(300) 1fr;
+  @include mediaMx(880) {
+    grid-template-columns: 1fr;
   }
 
-  // .tabs__navigation
-  &__navigation {
+  // .tabs__nav
+  &__nav {
     display: flex;
-    @include mediaMn(768) {
+    width: 100%;
+
+    @include mediaMn(880) {
       gap: rem(20);
-      width: rem(300);
       text-align-last: left;
       background: $white-100;
       flex-direction: column;
@@ -208,46 +249,106 @@
       height: fit-content;
       padding: rem(10);
     }
-    @include mediaMx(1000) {
-      width: rem(230);
-    }
-    @include mediaMx(768) {
+
+    @include mediaMx(880) {
       gap: rem(10);
       flex-wrap: wrap;
+
       &:not(:last-child) {
         margin-bottom: rem(30);
       }
-      width: 100%;
+    }
+
+    @include mediaMn(520) {
+      justify-content: center;
     }
   }
-  // .tabs__title
-  &__title {
+
+  // .tabs__trigger
+  &__trigger {
     $font-size: 18;
 
     font-size: rem($font-size);
     line-height: prc(22, $font-size);
-    &.tab-active {
-      border: rem(1.5) solid $blue-100;
-      color: $blue-100;
+    transition: $default-trans;
+
+    @include anyHover {
+      color: $blue-hover;
     }
-    @include mediaMx(768) {
+
+    @include mediaMn(880) {
+      display: flex;
+      align-items: center;
+      gap: rem(10);
+    }
+
+    @include mediaMx(880) {
       background: $white-100;
       border-radius: rem(8);
       padding: rem(5) rem(10);
+      border: rem(1.5) solid transparent;
+    }
+
+    &.active {
+      border-color: $blue-100;
+      color: $blue-100;
+
+      span {
+        background: $blue-100;
+        border-color: $blue-100;
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    span {
+      display: none;
+
+      @include mediaMn(880) {
+        position: relative;
+        display: block;
+        flex: 0 0 rem(16);
+        height: rem(16);
+        border-radius: rem(2);
+        border: rem(1) solid $black-80;
+        background: transparent;
+        transition: $default-trans;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: rem(12);
+          height: rem(12);
+          background-image: url('./../images/checked.png');
+          background-repeat: no-repeat;
+          background-position: center;
+          opacity: 0;
+          transition: $default-trans;
+        }
+      }
     }
   }
-  // .tabs__content
-  &__content {
-  }
-  // .tabs__body
-  &__body {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
 
-    @include mediaMx(480) {
+  // .tabs__panel
+  &__panel {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(10);
+    animation: fade-up-big 0.4s forwards;
+
+    @include mediaMx(640) {
+      gap: rem(6);
       grid-template-columns: repeat(2, 1fr);
     }
-    gap: rem(10);
+
+    &.active {
+      display: grid;
+    }
   }
 }
 // ======================================================================================================================================================== //
