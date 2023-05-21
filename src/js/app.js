@@ -18,7 +18,7 @@ import BurgerMenu from './modules/BurgerMenu';
 import initMap from './modules/yandexMapLoad.js';
 import { footerMenu } from './helpers/elementsNodeList.js';
 
-// import Tabs from 'modules/Tabs';
+import Tabs from './modules/Tabs';
 
 // import { MousePRLX } from './libs/parallaxMouse'
 
@@ -63,7 +63,9 @@ new BurgerMenu().init();
  */
 // togglePopupWindows();
 
-// const tabs = new Tabs('default-tabs', {});
+const tabs = new Tabs('catalog', {
+  defaultTab: 3,
+});
 
 const setClassCollapsable = () => {
   footerMenu.classList.toggle('collapsable', innerWidth <= 510);
