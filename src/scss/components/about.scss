@@ -1,58 +1,56 @@
 .about {
-    padding-top: rem(130);
+  &__breadcrumbs {
+    &:not(:last-child) {
+      margin-bottom: rem(50);
+    }
+  }
+  // .about__title
+  &__title {
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+  // .about__text
+  &__text {
+    background: #ffffff;
+
+    @media (min-width: em(510)) {
+      padding: rem(40) rem(50) rem(40) rem(50);
+    }
+
     @media (max-width: em(510)) {
-        padding-top: rem(110);
-    }
-    padding-bottom: rem(70);
-
-    // .about__container
-    &__container {
+      padding: rem(20);
+      margin-left: rem(-15);
+      margin-right: rem(-15);
     }
 
-    &__breadcrumbs {
-        &:not(:last-child) {
-            margin-bottom: rem(50);
-        }
+    @media (min-width: em(510)) {
+      border-radius: rem(8);
     }
-    // .about__title
-    &__title {
-        text-align: center;
-        &:not(:last-child) {
-            margin-bottom: rem(30);
-        }
-    }
-    // .about__text
-    &__text {
-        @media (min-width: em(510)) {
-            padding: rem(40) rem(50) rem(40) rem(50);
-        }
+
+    p {
+      margin: 0 auto;
+      max-width: rem(1010);
+      font-size: rem(24);
+      line-height: prc(29, 24);
+      color: $black-80;
+
+      @media (max-width: em(510)) {
+        $font-size: 16;
+
+        font-size: rem($font-size);
+        line-height: prc(19, 16);
+      }
+
+      &:not(:last-child) {
+        margin-bottom: rem(30);
+
         @media (max-width: em(510)) {
-            padding: rem(20);
-            margin-left: rem(-15);
-            margin-right: rem(-15);
+          margin-bottom: rem(20);
         }
-        background: #ffffff;
-        @media (min-width: em(510)) {
-            border-radius: rem(8);
-        }
-        p {
-            margin: 0 auto;
-            max-width: rem(1010);
-            font-size: rem(24);
-            line-height: math.div(29, 24);
-            color: $black-80;
-            @media (max-width: em(510)) {
-                $font-size: 16;
-                
-                font-size: rem($font-size);
-                line-height: math.div(19, 16);
-            }
-            &:not(:last-child) {
-                margin-bottom: rem(30);
-                @media (max-width: em(510)) {
-                    margin-bottom: rem(20);
-                }
-            }
-        }
+      }
     }
+  }
 }

@@ -1,15 +1,4 @@
 .contacts {
-  padding-top: rem(130);
-  padding-bottom: rem(70);
-
-  @media (max-width: em(510)) {
-    padding-top: rem(110);
-  }
-
-  // .contacts__container
-  &__container {
-  }
-
   &__breadcrumbs {
     &:not(:last-child) {
       margin-bottom: rem(50);
