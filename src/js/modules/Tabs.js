@@ -50,7 +50,7 @@ class Tabs {
    * @private
    */
   #check() {
-    if (this.isTabsUnique()) {
+    if (this.isTabsUnique) {
       console.error(this.errors.duplicateTabs);
     }
 
@@ -59,7 +59,7 @@ class Tabs {
     }
   }
 
-  isTabsUnique() {
+  get isTabsUnique() {
     const tabs = document.querySelectorAll(`[data-tabs="${this.selector}"]`);
     return tabs.length > 1;
   }

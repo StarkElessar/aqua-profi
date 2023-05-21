@@ -18,13 +18,13 @@ import BurgerMenu from './modules/BurgerMenu';
 import initMap from './modules/yandexMapLoad.js';
 import { footerMenu } from './helpers/elementsNodeList.js';
 
-// import Tabs from 'modules/Tabs';
+import Tabs from './modules/Tabs';
 
 // import { MousePRLX } from './libs/parallaxMouse'
 
 // import AOS from 'aos'
 
-// import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Thumbs } from 'swiper';
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
@@ -63,7 +63,9 @@ new BurgerMenu().init();
  */
 // togglePopupWindows();
 
-// const tabs = new Tabs('default-tabs', {});
+const tabs = new Tabs('catalog', {
+  defaultTab: 3,
+});
 
 const setClassCollapsable = () => {
   footerMenu.classList.toggle('collapsable', innerWidth <= 510);
@@ -126,6 +128,23 @@ const footerMenuCollapsable = ({ target }) => {
 
 toggleSubList();
 setClassCollapsable();
+
+if (document.querySelector('.product-slider')) {
+  const thumbsSwiper = new Swiper('.product-slider__thumbs', {
+    direction: 'vertical',
+    spaceBetween: 10,
+    slidesPerView: 3,
+    watchSlidesProgress: true,
+  });
+
+  new Swiper('.product-slider__main', {
+    modules: [Thumbs],
+    spaceBetween: 10,
+    thumbs: {
+      swiper: thumbsSwiper,
+    },
+  });
+}
 
 if (document.getElementById('map-yandex')) {
   initMap();

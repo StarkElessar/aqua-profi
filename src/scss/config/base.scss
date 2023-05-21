@@ -16,7 +16,7 @@ body {
 
   &::before {
     content: '';
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
@@ -29,7 +29,7 @@ body {
   }
 }
 // Базовые анимации:
-// @import "keyframes";
+@import 'keyframes';
 
 // Стили для полноэкранного блока:
 // @import "fullscreen";
@@ -112,7 +112,13 @@ body {
     pointer-events: none;
   }
 
+  // .page_start
   &_start {
-    padding-top: rem($headerHeight);
+    padding-top: rem($header-height);
+  }
+
+  // .page_white
+  &_white {
+    background-color: $white-100;
   }
 }
