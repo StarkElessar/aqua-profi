@@ -1,70 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-@@include('html/head.html', {
-'title': 'Спецодежда - Летняя'
-})
-<body>
-<div class="wrapper">
-  @@include('html/header.html', {})
-  <main class="page page_start page_white">
-    <section class="product space-y">
-      <div class="product__container">
-        <nav class="breadcrumbs product__breadcrumbs">
-          <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item">
-              <a class="breadcrumbs__link" href="index.html">Главная страница Аква-Профи</a>
-            </li>
-            <li class="breadcrumbs__item">
-              <a class="breadcrumbs__link" href="catalog.html">Спецодежда</a>
-            </li>
-            <li class="breadcrumbs__item">
-              <a class="breadcrumbs__link" href="#">Летняя</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="product-preview">
-          <div class="product-slider">
-            <div class="swiper product-slider__thumbs swiper-thumbs">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
+  @@include('html/head.html', {
+  'title': 'Спецодежда - Летняя'
+  })
+  <body>
+    <div class="wrapper">
+      @@include('html/header.html', {})
+      <main class="page page_start page_white">
+        <section class="product space-y">
+          <div class="product__container">
+            <nav class="breadcrumbs product__breadcrumbs">
+              <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__link" href="index.html">Главная страница Аква-Профи</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__link" href="catalog.html">Спецодежда</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__link" href="#">Летняя</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="product-preview">
+              <a href="index.html" class="product-preview__back">
+                <img src="images/icons/arrow-down.svg" alt="На главную">
+              </a>
+              <div class="product-slider">
+                <div class="swiper product-slider__thumbs swiper-thumbs">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="product-slider__image-ibg">
+                        <img src="images/product/image01.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product-slider__image-ibg">
+                        <img src="images/product/image02.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product-slider__image-ibg">
+                        <img src="images/product/image03.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="product-slider__image-ibg">
+                        <img src="images/product/image04.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper product-slider__main">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="main__image-ibg_contain">
+                        <img src="images/product/main01.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="swiper product-slider__main">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
+              <div class="product-preview__info">
+                <h1 class="title product-preview__title">Комплект мужской летний</h1>
+                <ul class="product-tag product-preview__product-tag">
+                  <li class="product-tag__item">куртка</li>
+                  <li class="product-tag__item">брюки</li>
+                  <li class="product-tag__item">полукомбинезон</li>
+                </ul>
+                <p>Варианты носки: куртка-брюки, куртка-полукомбинезон</p>
+                <button class="button product-preview__button" type="button">Оформить заявку</button>
               </div>
             </div>
           </div>
-          <div class="product-preview__info">
-            <h1 class="title product-preview__title">контакты</h1>
-            <ul class="product-tag product-preview__product-tag">
-              <li class="product-tag__item">куртка</li>
-              <li class="product-tag__item">брюки</li>
-              <li class="product-tag__item">полукомбинезон</li>
-            </ul>
-            <p>Варианты носки: куртка-брюки, куртка-полукомбинезон</p>
-            <button class="button product-preview__button" type="button">Оформить заявку</button>
+        </section>
+        <section class="specs">
+          <div class="specs__container">
+            <h2 class="specs__title">Характеристики</h2>
+            <table class="table-specs">
+              <tbody class="tabel-specs__body">
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Цвет<span></span></td>
+                  <td class="table-specs__value">Серый</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Состав<span></span></td>
+                  <td class="table-specs__value">Хлопок 33%, полиэфир 67%, 245 г/м2</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Защитные свойства<span></span></td>
+                  <td class="table-specs__value">ЗМи</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Рост<span></span></td>
+                  <td class="table-specs__value">170-176, 182-188</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Размер<span></span></td>
+                  <td class="table-specs__value">44-46, 48-50, 52-54, 56-58, 60-62</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  @@include('html/footer.html', {})
-</div>
-@@include('html/script.html', {})
-</body>
+        </section>
+        <section class="info">
+          <div class="info__container">
+            <h2 class="info__title">Дополнительная информация</h2>
+            <table class="table-specs">
+              <tbody class="tabel-specs__body">
+                <tr class="table-specs__sub-title">
+                  <td>Куртка</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Воротник<span></span></td>
+                  <td class="table-specs__value">отложной</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Застёжка<span></span></td>
+                  <td class="table-specs__value">потайная на кнопках</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Карманы<span></span></td>
+                  <td class="table-specs__value">верхние: левый накладной, правый накладной с клапаном, боковые накладные с наклонным входом</td>
+                </tr>
+              </tbody>
+              <tbody class="tabel-specs__body">
+                <tr class="table-specs__sub-title">
+                  <td>Полукомбинезон</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Застёжка<span></span></td>
+                  <td class="table-specs__value">потайная на пуговицах</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Карманы<span></span></td>
+                  <td class="table-specs__value">нагрудный с клапаном, боковые на передних частях брюк, задние: с клапанами, накладной для инструмента</td>
+                </tr>
+              </tbody>
+              <tbody class="tabel-specs__body">
+                <tr class="table-specs__sub-title">
+                  <td>Брюки</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Застёжка<span></span></td>
+                  <td class="table-specs__value">потайная на пуговицах</td>
+                </tr>
+                <tr class="table-specs__row">
+                  <td class="table-specs__category">Карманы<span></span></td>
+                  <td class="table-specs__value">боковые на передних частях брюк, задний накладной</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+      @@include('html/footer.html', {})
+    </div>
+    @@include('html/script.html', {})
+  </body>
 </html>

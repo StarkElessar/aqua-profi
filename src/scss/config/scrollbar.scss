@@ -6,6 +6,7 @@
   // Chrome, Edge, and Safari
   &::-webkit-scrollbar {
     width: rem(8);
+    height: rem(5);
     background-color: $white-100;
   }
 

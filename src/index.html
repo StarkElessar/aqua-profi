@@ -17,17 +17,97 @@
         "value": "1",
         "where": "на сотруднике"
         })
-        @@include('html/clothing-type.html', {
-        "img": "images/clothing/antistatic.jpg",
-        "alt": "Антистатическая одежда",
-        "type": "Антистатическая"
-        })
+
         @@include('html/clothing-card.html', {
         "img": "images/complects/man-summer-01.jpg",
         "alt": "Комплект мужской летний",
         "type": "Комплект мужской летний"
         })
-
+        <section class="overalls-cards">
+          <div class="overalls-cards__container">
+            <div class="overalls-cards__head">
+              <h2 class="title overalls-cards__title">спецодежда</h2>
+              <div class="overalls-cards__text">
+                изготавливается исходя из требований охраны труда и пожеланий заказчика с учётом специфики организации производства
+              </div>
+            </div>
+            <div class="overalls-cards__items">
+              @@include('html/clothing-type.html', {
+              "class":" overalls-cards__item",
+              "img": "images/clothing/antistatic.jpg",
+              "alt": "Антистатическая одежда",
+              "type": "Антистатическая"
+              })
+              @@include('html/clothing-type.html', {
+              "class":" overalls-cards__item",
+              "img": "images/clothing/fireproof.jpg",
+              "alt": "Огнестойкая одежда",
+              "type": "Огнестойкая"
+              })
+              @@include('html/clothing-type.html', {
+              "class":" overalls-cards__item",
+              "img": "images/clothing/Food.jpg",
+              "alt": "Пищевая одежда",
+              "type": "Пищевая"
+              })
+              @@include('html/clothing-type.html', {
+              "class":" overalls-cards__item",
+              "img": "images/clothing/Summer.jpg",
+              "alt": "Летняя одежда",
+              "type": "Летняя"
+              })
+              @@include('html/clothing-type.html', {
+              "class":" overalls-cards__item",
+              "img": "images/clothing/Insulated.jpg",
+              "alt": "Утеплённая одежда",
+              "type": "Утеплённая"
+              })
+            </div>
+          </div>
+        </section>
+        <section class="our-partenrs">
+          <div class="our-partenrs__container">
+            <h2 class="title our-partenrs__title">наши партнеры</h2>
+            <div class="our-partenrs__logos">
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/ak-group.png" alt="ak-group">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/alivaria.png" alt="alivaria">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/aluteh.png" alt="aluteh">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/bit-splav.png" alt="bit-splav">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/coswick.png" alt="coswick">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/zoomlion.png" alt="zoomlion">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/stadler.png" alt="stadler">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/kristal.png" alt="kristal">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/tahat.png" alt="tahat">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/g-energy.png" alt="g-energy">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/leangroup.png" alt="leangroup">
+              </div>
+              <div class="our-partenrs__image-ibg_contain">
+                <img src="images/logos/gomel-zavod.png" alt="gomel-zavod">
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       @@include('html/footer.html', {})
     </div>
@@ -48,7 +128,8 @@
               <fieldset class="form-popup__field">
                 <div class="form-popup__column">
                   <label for="phone" class="form-popup__label">Телефон <span>*</span></label>
-                  <input class="form-popup__input" id="phone" type="tel:+3753319023" name="input" placeholder="+375 (33) 190-23">
+                  <!-- при ошибке из data-error выводить текст в span -->
+                  <input class="form-popup__input" id="phone" type="tel:+3753319023" name="input" placeholder="+375 (33) 190-23" data-error="Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX">
                 </div>
                 <div class="form-popup__column">
                   <label for="email" class="form-popup__label">Электронная почта</label>

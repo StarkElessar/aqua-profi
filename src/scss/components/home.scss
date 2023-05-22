@@ -1,0 +1,108 @@
+
+// ======================================================================================================================================================== //
+.overalls-cards {
+    padding-top: rem(75);
+    padding-bottom: rem(75);
+
+    @media (min-width: em(480)) {
+        padding-top: rem(35);
+        padding-bottom: rem(35);
+    }
+
+    // .overalls-cards__container
+    &__container {
+    }
+    // .overalls-cards__head
+    &__head {
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-bottom: rem(50);
+        }
+    }
+    // .overalls-cards__title
+    &__title {
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+    // .overalls-cards__text
+    &__text {
+        font-size: rem(24);
+        line-height: math.div(29, 24);
+    }
+    // .overalls-cards__items
+    &__items {
+        display: flex;
+        gap: rem(10);
+        overflow-x: auto;
+    }
+    // .overalls-cards__item
+    &__item {
+        flex: 0 0 rem(235);
+
+        @media (max-width: em(1000)) {
+            flex: 0 0 rem(180);
+        }
+    }
+}
+
+// ======================================================================================================================================================== //
+.our-partenrs {
+    padding-top: rem(70);
+    padding-bottom: rem(150);
+
+    @media (max-width: em(1000)) {
+        padding-bottom: rem(100);
+    }
+
+    @media (max-width: em(480)) {
+        padding-bottom: rem(70);
+    }
+    // .our-partenrs__container
+    &__container {
+    }
+    // .our-partenrs__title
+    &__title {
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: rem(50);
+
+            @media (max-width: em(480)) {
+                margin-bottom: rem(30);
+            }
+        }
+    }
+    // .our-partenrs__logos
+    &__logos {
+        background: #ffffff;
+        border-radius: rem(8);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    // .our-partenrs__image-ibg
+    &__image-ibg_contain {
+        height: rem(170);
+        width: rem(400);
+
+        img {
+            padding: 10%;
+        }
+
+        @media (max-width: em(1000)) {
+            height: rem(100);
+            width: rem(240);
+        }
+
+        @media (max-width: em(768)) {
+            height: rem(90);
+            width: rem(215);
+        }
+
+        @media (max-width: em(480)) {
+            height: rem(65);
+            width: rem(155);
+        }
+    }
+}

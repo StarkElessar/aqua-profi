@@ -129,6 +129,10 @@
   // .clothing-card__image-ibg
   &__image-ibg_contain {
     height: rem(290);
+
+    @media (max-width: em(1000)) {
+      height: rem(280);
+    }
   }
 
   // .clothing-card__type
