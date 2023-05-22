@@ -1,7 +1,12 @@
 .product {
   // .product__breadcrumbs
   &__breadcrumbs {
-    margin-bottom: rem(50);
+    @media (min-width: em(768)) {
+      margin-bottom: rem(50);
+    }
+    @media (max-width: em(768)) {
+      display: none;
+    }
   }
 }
 // ======================================================================================================================================================== //
@@ -30,6 +35,37 @@
   display: flex;
   justify-content: space-between;
   gap: rem(40);
+  @media (max-width: em(768)) {
+    position: relative;
+  }
+
+  // .product-preview__back
+  &__back {
+    @media (min-width: em(768)) {
+      display: none;
+    }
+    @media (max-width: em(768)) {
+      position: absolute;
+      left: rem(20);
+      top: rem(20);
+      display: block;
+      z-index: 10;
+
+      img {
+        width: rem(20);
+        opacity: 0.5;
+        transform: rotate(90deg);
+        height: rem(20);
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+        @media (any-hover: hover) {
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
   // .product-preview__title
   &__title {
     margin-bottom: rem(20);
@@ -67,27 +103,58 @@
       margin-top: rem(25);
     }
   }
+
+  @media (max-width: em(768)) {
+    flex-wrap: wrap;
+  }
 }
 // ======================================================================================================================================================== //
 .product-slider {
-  display: flex;
-  gap: rem(20);
-
   // .product-slider__thumbs
   &__thumbs {
     max-height: rem(560);
 
     .swiper-slide {
-      width: 120px;
-      height: 145px;
+      width: rem(120);
+      height: rem(145);
       border-radius: rem(8);
-      border: 2px solid transparent;
+      border: rem(2) solid transparent;
       background-color: $black-5;
+      overflow: hidden;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        background: url("../images/labels/aqua-profi.svg") 0 0 / contain no-repeat;
+        width: rem(24);
+        top: rem(8);
+        left: rem(8);
+        z-index: 4;
+        height: rem(12);
+      }
 
       &.swiper-slide-thumb-active {
         border-color: #4589cc;
       }
+
+      @media (max-width: em(1000)) {
+        width: rem(90);
+        max-height: rem(110);
+      }
+      @media (max-width: em(768)) {
+        display: none;
+      }
     }
+
+    @media (max-width: em(1000)) {
+      max-height: rem(430);
+    }
+  }
+
+  &__image-ibg {
+    height: 100%;
   }
 
   // .product-slider__main
@@ -97,5 +164,137 @@
     .swiper-slide {
       background-color: $blue-100;
     }
+
+    @media (max-width: em(1000)) {
+      max-width: rem(360);
+      height: rem(430);
+    }
+    @media (max-width: em(768)) {
+      width: 100%;
+    }
+    @media (max-width: em(480)) {
+      height: rem(320);
+    }
+  }
+
+  @media (min-width: em(768)) {
+    display: flex;
+    gap: rem(20);
+  }
+  @media (max-width: em(768)) {
+    width: 100%;
+  }
+}
+// ======================================================================================================================================================== //
+.main__image-ibg_contain {
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: url("../images/labels/aqua-profi.svg") 0 0 / contain no-repeat;
+    width: rem(92);
+    top: rem(32);
+    left: rem(32);
+    z-index: 4;
+    height: rem(48);
+    @media (max-width: em(768)) {
+      width: rem(70);
+      top: rem(25);
+      left: rem(25);
+      height: rem(40);
+    }
+    @media (max-width: em(480)) {
+      width: rem(50);
+      top: rem(16);
+      left: rem(16);
+      height: rem(30);
+    }
+  }
+}
+// ======================================================================================================================================================== //
+.specs,
+.info {
+  padding-bottom: rem(70);
+
+  &__title {
+    font-family: "Rubik";
+    font-weight: 500;
+    font-size: rem(24);
+    line-height: math.div(28, 24);
+    color: $black-80;
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+
+    @media (max-width: em(480)) {
+      font-size: rem(18);
+      line-height: math.div(22, 18);
+    }
+  }
+
+  @media (max-width: em(480)) {
+    padding-bottom: rem(50);
+  }
+}
+
+// ======================================================================================================================================================== //
+.table-specs {
+  border-spacing: 0 rem(20);
+
+  // .table-specs__body
+  &__body {
+  }
+  &__sub-title {
+    display: inline-block;
+    height: rem(22);
+
+    td {
+      text-align: start;
+      font-family: "Rubik";
+      font-weight: 500;
+      font-size: rem(18);
+      line-height: math.div(22, 18);
+      color: $black-80;
+
+      @media (max-width: em(480)) {
+        $font-size: 16;
+
+        font-size: rem($font-size);
+        line-height: math.div(19, $font-size);
+      }
+    }
+
+    &:not(:first-child) {
+      margin-bottom: rem(40);
+    }
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+  // .product__table-row
+  &__row {
+  }
+  // .table-specs__category
+  &__category {
+    @include adaptiveClamp("width", 410, 140, 1920, 360, 1);
+
+    font-size: rem(18);
+    line-height: math.div(22, 18);
+    color: $black-25;
+    display: flex;
+
+    span {
+      border-bottom: rem(1) dotted $black-25;
+      flex: 1 1 auto;
+    }
+  }
+  // .table-specs__value
+  &__value {
+    font-size: rem(18);
+    line-height: math.div(22, 18);
+    color: $black-80;
   }
 }
