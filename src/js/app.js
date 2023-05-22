@@ -63,9 +63,23 @@ new BurgerMenu().init();
  */
 // togglePopupWindows();
 
-const tabs = new Tabs('catalog', {
-  defaultTab: 3,
-});
+if (document.querySelector('[data-tabs="catalog"]')) {
+  const category = [
+    '#antistaticheskaya',
+    '#ognestojkaya',
+    '#pishchevaya',
+    '#letnyaya',
+    '#uteplyonnaya',
+  ];
+
+  const categoryId = category.indexOf(location.hash);
+  const tabId = categoryId < 0 ? 0 : categoryId;
+
+  new Tabs('catalog', {
+    defaultTab: tabId,
+    onChanged: ({ nextTab }) => (location.hash = nextTab.dataset.category),
+  });
+}
 
 const setClassCollapsable = () => {
   footerMenu.classList.toggle('collapsable', innerWidth <= 510);
