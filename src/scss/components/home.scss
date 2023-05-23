@@ -255,6 +255,67 @@
     }
 }
 // ======================================================================================================================================================== //
+.steps {
+    padding-top: rem(70);
+    padding-bottom: rem(100);
+    @media (max-width: em(768)) {
+        padding-bottom: rem(50);
+    }
+
+    // .steps__container
+    &__container {
+    }
+    // .steps__head
+    &__head {
+    }
+    // .steps__title
+    &__title {
+    }
+    // .steps__text
+    &__text {
+    }
+    // .steps__preparation
+    &__preparation {
+    }
+    // .steps__main
+    &__main {
+        display: grid;
+        gap: rem(40);
+        justify-items: center;
+    }
+    // .steps__sub-title
+    &__sub-title {
+        font-family: "Rubik";
+        font-weight: 500;
+        font-size: rem(24);
+        line-height: math.div(28, 24);
+        color: $black-80;
+    }
+
+    &__list {
+        text-align: center;
+        @media (min-width: em(768)) {
+            display: none;
+        }
+    }
+    &__item {
+        font-size: rem(16);
+        line-height: math.div(19, 16);
+        color: $black-80;
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+    }
+
+    svg {
+        width: 100%;
+        @media (max-width: em(768)) {
+            display: none;
+        }
+    }
+}
+
+// ======================================================================================================================================================== //
 .math-complects {
     padding: rem(100) 0 rem(70);
 

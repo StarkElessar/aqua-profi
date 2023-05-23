@@ -99,6 +99,30 @@
             </div>
           </div>
         </section>
+        <section class="steps">
+          <div class="steps__container">
+            <div class="steps__head">
+              <h2 class="title steps__title">этапы работы</h2>
+              <div class="steps__text">Мы предлагаем прогрессивный метод обеспечения спецодеждой персонала с полным контролем всех этапов работы</div>
+            </div>
+            <div class="steps__preparation">
+              
+            </div>
+            <div class="steps__main">
+              <h3 class="steps__sub-title">Основные</h3>
+              @@include('html/svg/circle.html', {})
+              <ul class="steps__list">
+                <li class="steps__item">1. Передача чистой спецодежды</li>
+                <li class="steps__item">2. Сбор ипользованной спецодежды</li>
+                <li class="steps__item">3. Приём использованной спецодежды</li>
+                <li class="steps__item">4. Вывоз использованной спецодежды</li>
+                <li class="steps__item">5. Обслуживание спецодежды</li>
+                <li class="steps__item">6. Контроль качества и ремонт спецодежды</li>
+                <li class="steps__item">7. Доставка чистой спецодежды</li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <section class="call">
           <div class="call__container">
             <h2 class="call__title">Мы индивидуально подходим к каждому клиенту, выстраивая оптимальную систему обслуживания!</h2>
@@ -188,15 +212,7 @@
             </div>
           </div>
         </section>
-
-
-        @@include('html/clothing-card.html', {
-        "img": "images/complects/man-summer-01.jpg",
-        "alt": "Комплект мужской летний",
-        "type": "Комплект мужской летний"
-        })
-        @@include('html/svg/circle.html', {
-        })
+        
       </main>
       @@include('html/footer.html', {})
     </div>
