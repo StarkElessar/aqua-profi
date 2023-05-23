@@ -119,15 +119,15 @@
       height: rem(145);
       border-radius: rem(8);
       border: rem(2) solid transparent;
-      background-color: $black-5;
       overflow: hidden;
       position: relative;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         display: block;
-        background: url("../images/labels/aqua-profi.svg") 0 0 / contain no-repeat;
+        background: url('../images/labels/aqua-profi.svg') 0 0 / contain
+          no-repeat;
         width: rem(24);
         top: rem(8);
         left: rem(8);
@@ -159,10 +159,10 @@
 
   // .product-slider__main
   &__main {
-    max-width: rem(460);
+    width: rem(460);
 
     .swiper-slide {
-      background-color: $blue-100;
+      //background-color: $blue-100;
     }
 
     @media (max-width: em(1000)) {
@@ -190,10 +190,10 @@
   height: 100%;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
-    background: url("../images/labels/aqua-profi.svg") 0 0 / contain no-repeat;
+    background: url('../images/labels/aqua-profi.svg') 0 0 / contain no-repeat;
     width: rem(92);
     top: rem(32);
     left: rem(32);
@@ -219,7 +219,7 @@
   padding-bottom: rem(70);
 
   &__title {
-    font-family: "Rubik";
+    font-family: 'Rubik';
     font-weight: 500;
     font-size: rem(24);
     line-height: math.div(28, 24);
@@ -253,7 +253,7 @@
 
     td {
       text-align: start;
-      font-family: "Rubik";
+      font-family: 'Rubik';
       font-weight: 500;
       font-size: rem(18);
       line-height: math.div(22, 18);
@@ -279,15 +279,21 @@
   }
   // .table-specs__category
   &__category {
-    @include adaptiveClamp("width", 410, 140, 1920, 360, 1);
+    @include adaptiveClamp('width', 410, 140, 1920, 360, 1);
 
     font-size: rem(18);
     line-height: math.div(22, 18);
     color: $black-25;
     display: flex;
 
+    @include mediaMx(510) {
+      font-size: rem(16);
+      line-height: prc(19, 16);
+    }
+
     span {
-      border-bottom: rem(1) dotted $black-25;
+      border-bottom: rem(1) dashed $black-25;
+      margin: 0 rem(4);
       flex: 1 1 auto;
     }
   }
@@ -296,5 +302,10 @@
     font-size: rem(18);
     line-height: math.div(22, 18);
     color: $black-80;
+
+    @include mediaMx(510) {
+      font-size: rem(16);
+      line-height: prc(19, 16);
+    }
   }
 }
