@@ -78,6 +78,12 @@ if (document.querySelector('[data-tabs="catalog"]')) {
   new Tabs('catalog', {
     defaultTab: tabId,
     onChanged: ({ nextTab }) => (location.hash = nextTab.dataset.category),
+    onHashChange: ({ data, eventObject: { newURL } }) => {
+      const currentHash = newURL.split('#')[1];
+      data.triggers.forEach((trigger) => {
+        trigger.dataset.category === currentHash ? trigger.click() : null;
+      });
+    },
   });
 }
 
