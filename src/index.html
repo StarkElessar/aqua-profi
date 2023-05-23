@@ -6,25 +6,52 @@
   <body>
     <div class="wrapper">
       @@include('html/header.html', {})
-      <main class="page">
-        @@include('html/advantage.html', {
-        "img": "images/icons/byn.svg",
-        "alt": "Экономичность",
-        "title": "Экономичность",
-        "text": "Предприятие не несёт лишних затрат на закупку, пошив и доставку рабочей одежды"
-        })
-        @@include('html/complect-item.html', {
-        "value": "1",
-        "where": "на сотруднике"
-        })
-        
-        @@include('html/clothing-card.html', {
-        "img": "images/complects/man-summer-01.jpg",
-        "alt": "Комплект мужской летний",
-        "type": "Комплект мужской летний"
-        })
-        @@include('html/svg/circle.html', {
-        })
+      <main class="page space-y">
+        <section class="hero">
+          <div class="hero__container">
+            <div class="hero__body">
+              <h1 class="hero__title">аренда спецодежды</h1>
+              <ul class="hero__list">
+                <li class="hero__item">Необходимые защитные свойства</li>
+                <li class="hero__item">Достойный внешний вид</li>
+                <li class="hero__item">Культура производства</li>
+                <li class="hero__item">Удобство использования</li>
+                <li class="hero__item">Экономия времени и средств</li>
+                <li class="hero__item">Современный подход</li>
+              </ul>
+              <button type="button" class="hero__button button">Заказать звонок</button>
+            </div>
+          </div>
+          <div class="hero__image-ibg_contain hero__image-ibg_contain_second">
+            <img src="images/hero/peoples.png" alt="Работники">
+          </div>
+          <div class="hero__image-ibg">
+            <img src="images/hero/bg.jpg" alt="">
+          </div>
+        </section>
+        <div class="advantages">
+          <div class="advantages__container">
+            @@include('html/advantage.html', {
+            "img": "images/icons/byn.svg",
+            "alt": "Экономичность",
+            "title": "Экономичность",
+            "text": "Предприятие не несёт лишних затрат на закупку, пошив и доставку рабочей одежды"
+            })
+            @@include('html/advantage.html', {
+            "img": "images/icons/shirt.svg",
+            "alt": "Гибкость",
+            "title": "Гибкость",
+            "text": "Количество необходимых комплектов рабочей одежды рассчитывается с учётом потребности предприятия и при необходимости может изменяться"
+            })
+            @@include('html/advantage.html', {
+            "img": "images/icons/marking.svg",
+            "alt": "Индивидуальность",
+            "title": "Индивидуальность",
+            "text": "Вся рабочая одежда промаркирована метками предприятия-заказчика. Это гарантирует, что после стирки сотрудник наденет именно свою одежду"
+            })
+          </div>
+
+        </div>
         <section class="overalls-cards">
           <div class="overalls-cards__container">
             <div class="overalls-cards__head">
@@ -72,6 +99,52 @@
             </div>
           </div>
         </section>
+        <section class="call">
+          <div class="call__container">
+            <h2 class="call__title">Мы индивидуально подходим к каждому клиенту, выстраивая оптимальную систему обслуживания!</h2>
+            <button type="button" class="call__button button">Заказать звонок</button>
+          </div>
+          <div class="call__image-ibg">
+            <img src="images/call/workshop.jpg" alt="Цех">
+          </div>
+        </section>
+        <section class="math-complects">
+          <div class="math-complects__container">
+            <div class="math-complects__head">
+              <h2 class="math-complects__title title">математика комплектов</h2>
+              <div class="math-complects__text">
+                На каждого сотрудника отшивается 3 комплекта
+                спецодежды (больше — по желанию клиента в зависимости от сменности работников
+                предприятия и специфики работы)
+              </div>
+            </div>
+            <div class="math-complects__items">
+              @@include('html/complect-item.html', {
+              "class":"",
+              "value": "1",
+              "where": "на сотруднике"
+              })
+              <img src="images/icons/plus-big.svg" alt="">
+              @@include('html/complect-item.html', {
+              "class": "",
+              "value": "1",
+              "where": "в запасе"
+              })
+              <img src="images/icons/plus-big.svg" alt="">
+              @@include('html/complect-item.html', {
+              "class": "",
+              "value": "1",
+              "where": "на обслуживании в Аква-Профи"
+              })
+              <img src="images/icons/equality.svg" alt="">
+              @@include('html/complect-item.html', {
+              "class": " complect-item_more",
+              "value": "3",
+              "where": "комплекта на сотрудника"
+              })
+            </div>
+          </div>
+        </section>
         <section class="our-partenrs">
           <div class="our-partenrs__container">
             <h2 class="title our-partenrs__title">наши партнеры</h2>
@@ -115,6 +188,15 @@
             </div>
           </div>
         </section>
+
+
+        @@include('html/clothing-card.html', {
+        "img": "images/complects/man-summer-01.jpg",
+        "alt": "Комплект мужской летний",
+        "type": "Комплект мужской летний"
+        })
+        @@include('html/svg/circle.html', {
+        })
       </main>
       @@include('html/footer.html', {})
     </div>
@@ -136,13 +218,7 @@
                 <div class="form-popup__column">
                   <label for="phone" class="form-popup__label">Телефон <span>*</span></label>
                   <!-- при ошибке из data-error выводить текст в span -->
-                  <input
-                    class="form-popup__input"
-                    id="phone"
-                    type="tel:+3753319023"
-                    name="input"
-                    placeholder="+375 (33) 190-23-23"
-                    data-error="Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX">
+                  <input class="form-popup__input" id="phone" type="tel:+3753319023" name="input" placeholder="+375 (33) 190-23-23" data-error="Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX">
                 </div>
                 <div class="form-popup__column">
                   <label for="email" class="form-popup__label">Электронная почта</label>

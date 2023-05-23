@@ -23,7 +23,7 @@
     align-items: center;
 
     &::after {
-      content: '/';
+      content: "/";
       margin-left: rem(7);
       color: $blue-100;
     }
@@ -38,7 +38,7 @@
 }
 // ======================================================================================================================================================== //
 .title {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: rem(36);
   line-height: prc(43, 36);
@@ -70,7 +70,7 @@
 
   // .advantage__title
   &__title {
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
     font-weight: 500;
     font-size: rem(24);
     line-height: prc(28, 24);
@@ -80,6 +80,11 @@
     &:not(:last-child) {
       margin-bottom: rem(20);
     }
+    
+    @media (max-width: em(768)) {
+      font-size: rem(18);
+      line-height: prc(22, 18);
+    }
   }
 
   // .advantage__text
@@ -88,6 +93,11 @@
     font-size: rem(18);
     line-height: prc(22, 18);
     color: $black-80;
+
+    @media (max-width: em(768)) {
+      font-size: rem(16);
+      line-height: prc(19, 16);
+    }
   }
 }
 // ======================================================================================================================================================== //
@@ -99,13 +109,43 @@
   display: grid;
   justify-items: center;
 
+  &_more {
+    border: rem(5) solid #dee9ef;
+    position: relative;
+    
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: $white-100;
+      border: rem(5) solid #dee9ef;
+      width: 102%;
+      height: 110%;
+      border-radius: rem(12);
+      z-index: -1;
+    }
+    &::after {
+      top: rem(-15);
+      right: rem(-15);
+    }
+    &::before {
+      top: rem(-25);
+      right: rem(-25);
+    }
+  }
+
   // .complect-item__value
   &__value {
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
     font-weight: 600;
     font-size: rem(48);
     line-height: prc(57, 48);
     color: #333333;
+
+    .complect-item_more & {
+      color: $blue-100;
+    }
 
     &:not(:last-child) {
       margin-bottom: rem(15);
@@ -117,6 +157,10 @@
     font-size: rem(18);
     line-height: prc(22, 18);
     color: #333333;
+
+    .complect-item_more & {
+      color: $blue-100;
+    }
   }
 }
 // ======================================================================================================================================================== //
@@ -137,7 +181,7 @@
 
   // .clothing-card__type
   &__type {
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
     font-weight: 500;
     padding: rem(16) rem(10);
     font-size: rem(24);
@@ -332,14 +376,14 @@
         transition: $default-trans;
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
           width: rem(12);
           height: rem(12);
-          background-image: url('./../images/checked.png');
+          background-image: url("./../images/checked.png");
           background-repeat: no-repeat;
           background-position: center;
           opacity: 0;

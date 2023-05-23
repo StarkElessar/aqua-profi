@@ -1,10 +1,163 @@
+.hero {
+    display: flex;
+    padding-top: rem(110);
+    padding-bottom: rem(100);
+    position: relative;
+    overflow: hidden;
 
+    @media (max-width: em(740)) {
+        padding-top: rem(60);
+        padding-bottom: rem(30);
+        gap: rem(30);
+        flex-direction: column;
+    }
+
+    // .hero__container
+    &__container {
+        width: 100%;
+        z-index: 3;
+        position: relative;
+    }
+    // .hero__body
+    &__body {
+        @media (min-width: em(740)) {
+            max-width: rem(370);
+        }
+        @media (max-width: em(510)) {
+            padding-top: rem(30);
+        }
+    }
+    // .hero__title
+    &__title {
+        font-family: "Rubik";
+        font-weight: 600;
+        font-size: rem(48);
+        line-height: math.div(57, 48);
+        text-transform: uppercase;
+        @media (min-width: em(740)) {
+            color: $white-100;
+        }
+        @media (max-width: em(740)) {
+            font-size: rem(36);
+            line-height: math.div(43, 36);
+        }
+
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+    // .hero__list
+    &__list {
+        &:not(:last-child) {
+            margin-bottom: rem(30);
+        }
+    }
+    // .hero__item
+    &__item {
+        font-size: rem(18);
+        line-height: math.div(22, 18);
+        @media (min-width: em(740)) {
+            color: $white-100;
+        }
+        padding-left: rem(30);
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: rem(5);
+            display: block;
+            width: rem(25);
+            height: rem(25);
+            background: url("../images/icons/check.svg") 0 0 no-repeat;
+        }
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+    // .hero__button
+    &__button {
+        @media (max-width: em(740)) {
+            width: 100%;
+        }
+    }
+    // .hero__image-ibg
+    &__image-ibg {
+        @media (min-width: em(740)) {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        @media (max-width: em(740)) {
+            height: rem(400);
+            width: 100%;
+        }
+
+        // .hero__image-ibg_contain_second
+        &_contain_second {
+            position: absolute;
+            @media (min-width: em(740)) {
+                bottom: rem(-50);
+                @include adaptiveClamp("right", 400, 20, 1920, 1000, 1);
+                width: rem(635);
+                z-index: 3;
+                height: rem(645);
+
+                @media (max-width: em(900)) {
+                    height: rem(540);
+                    right: rem(-40);
+                    width: rem(535);
+                }
+            }
+            @media (max-width: em(740)) {
+                width: rem(370);
+                bottom: 0;
+                z-index: 2;
+                height: rem(375);
+                align-self: center;
+            }
+
+            @media (max-width: em(480)) {
+                width: rem(305);
+                bottom: rem(8);
+                z-index: 2;
+                height: rem(310);
+            }
+        }
+
+        // .hero__image-ibg_contain
+        &_contain {
+        }
+    }
+}
+
+// ======================================================================================================================================================== //
+.advantages {
+    padding-top: rem(50);
+    padding-bottom: rem(75);
+
+    @media (max-width: em(480)) {
+        padding-top: rem(30);
+        padding-bottom: rem(35);
+    }
+
+    &__container {
+        @include grid-cards(fit, rem(220), 1fr) {
+            align-items: start;
+            justify-items: center;
+            gap: rem(20);
+        }
+    }
+}
 // ======================================================================================================================================================== //
 .overalls-cards {
     padding-top: rem(75);
     padding-bottom: rem(75);
 
-    @media (min-width: em(480)) {
+    @media (max-width: em(480)) {
         padding-top: rem(35);
         padding-bottom: rem(35);
     }
@@ -43,6 +196,111 @@
 
         @media (max-width: em(1000)) {
             flex: 0 0 rem(180);
+        }
+    }
+}
+// ======================================================================================================================================================== //
+.call {
+    padding-top: rem(150);
+    padding-bottom: rem(150);
+    position: relative;
+
+    @media (max-width: em(510)) {
+        padding-top: rem(70);
+        padding-bottom: rem(70);
+    }
+
+    // .call__container
+    &__container {
+        z-index: 3;
+        position: relative;
+        display: grid;
+        justify-items: center;
+        gap: rem(35);
+    }
+    // .call__title
+    &__title {
+        font-family: "Rubik";
+        font-weight: 500;
+        max-width: rem(620);
+        font-size: rem(24);
+        line-height: math.div(28, 24);
+        text-align: center;
+        color: $white-100;
+    }
+    // .call__button
+    &__button {
+        @media (max-width: em(510)) {
+            width: 100%;
+        }
+    }
+    // .call__image-ibg
+    &__image-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+    }
+}
+// ======================================================================================================================================================== //
+.math-complects {
+    padding: rem(100) 0 rem(70);
+
+    // .math-complects__container
+    &__container {
+    }
+    // .math-complects__head
+    &__head {
+        text-align: center;
+        display: grid;
+        max-width: rem(1005);
+        margin: 0 auto;
+        gap: rem(15);
+
+        &:not(:last-child) {
+            margin-bottom: rem(60);
+        }
+    }
+    // .math-complects__title
+    &__title {
+    }
+    // .math-complects__text
+    &__text {
+    }
+    // .math-complects__items
+    &__items {
+        padding-left: rem(10);
+        padding-right: rem(10);
+
+        @media (min-width: em(740)) {
+            display: flex;
+            column-gap: rem(5);
+            row-gap: rem(50);
+        }
+        @media (max-width: em(1100)) {
+            flex-wrap: wrap;
+        }
+        @media (max-width: em(740)) {
+            text-align: center;
+        }
+
+        > div {
+            flex: 1 1 20%;
+        }
+        > img {
+            padding: rem(40);
         }
     }
 }
