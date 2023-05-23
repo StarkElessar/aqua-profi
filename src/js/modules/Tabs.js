@@ -22,6 +22,7 @@ class Tabs {
       defaultTab: 0,
       onChanged: () => {},
       onLoaded: () => {},
+      onHashChange: () => {},
       onTabHover: () => {},
       onResize: () => {},
     };
@@ -145,6 +146,10 @@ class Tabs {
 
     window.addEventListener('resize', (event) => {
       this.options.onResize(event);
+    });
+
+    window.addEventListener('hashchange', (event) => {
+      this.options.onHashChange({ data: this, eventObject: event });
     });
   }
 
