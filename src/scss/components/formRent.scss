@@ -60,19 +60,38 @@
     display: flex;
     gap: rem(30);
     margin-top: rem(50);
+
+    @include mediaMx(730) {
+      flex-direction: column;
+    }
   }
 
   // .form-rent__col-image
   &__col-image {
     flex: 0 0 rem(120);
+    width: rem(120);
   }
 
   // .form-rent__image-ibg
   &__image-ibg {
-    position: relative;
     width: 100%;
     height: rem(145);
+    background-color: $black-5;
     border-radius: rem(8);
+    border: 1px solid $black-5;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      background: url(../images/labels/aqua-profi.svg) 0 0 / contain no-repeat;
+      width: 1.5rem;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 4;
+      height: 0.75rem;
+    }
   }
 
   // .form-rent__col-settings
@@ -80,8 +99,8 @@
     flex: 1 1 calc(100% - rem(120));
   }
 
-  // .form-rent__title
-  &__title {
+  // .form-rent__type-name
+  &__type-name {
     font-size: rem(18);
     line-height: prc(21, 18);
     font-family: 'Rubik', sans-serif;
@@ -161,4 +180,145 @@
 .message-error {
   display: none;
   color: $red-error;
+}
+
+.kit-settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr rem(44);
+  gap: rem(20);
+
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+
+  @include mediaMx(580) {
+    grid-template-columns: 1fr rem(44);
+  }
+
+  // .kit-settings__label
+  &__label {
+    display: block;
+    color: $black-80;
+    font-size: rem(16);
+    line-height: prc(19, 16);
+    margin-bottom: rem(8);
+  }
+
+  @include mediaMx(580) {
+    &__grow,
+    &__size,
+    &__amount {
+      grid-column: 1 / 2;
+    }
+  }
+
+  // .kit-settings__amount-control
+  &__amount-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem(44);
+    border-radius: rem(8);
+    background-color: $black-5;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 rem(44);
+      height: 100%;
+      border-radius: rem(8);
+      background-color: $black-5;
+      transition: $default-trans;
+
+      &:hover {
+        background-color: rgba(#000, 5%);
+      }
+
+      &:active {
+        background-color: rgba(#000, 10%);
+      }
+
+      &.minus,
+      &.plus {
+        &::after {
+          content: '';
+          width: rem(14);
+          height: rem(14);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+      }
+
+      &.minus {
+        &::after {
+          background-image: url('./../images/icons/minus.svg');
+        }
+      }
+
+      &.plus {
+        &::after {
+          background-image: url('./../images/icons/plus-black.svg');
+        }
+      }
+    }
+
+    input {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: rem(18);
+      background-color: transparent;
+      @include hidePlaceholder;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+    }
+
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  // .kit-settings__remove
+  &__remove {
+    align-self: end;
+
+    @include mediaMx(580) {
+      grid-column: 2;
+      grid-row: 1 / 2;
+    }
+
+    button {
+      width: rem(44);
+      height: rem(44);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: rem(8);
+      background-color: rgba(#000, 3%);
+      transition: $default-trans;
+
+      &:hover {
+        background-color: $red-error;
+      }
+
+      &:active {
+        background-color: darken($red-error, 5%);
+      }
+
+      &::after {
+        content: '';
+        width: rem(14);
+        height: rem(14);
+        background-image: url('./../images/icons/trash.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+    }
+  }
 }
