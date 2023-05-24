@@ -25,6 +25,8 @@ import Tabs from './modules/Tabs';
 // import AOS from 'aos'
 
 import Swiper, { Thumbs } from 'swiper';
+import CustomSelect from './modules/CustomSelect.js';
+import { createNewComplect } from './helpers/elementFactories.js';
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
@@ -62,6 +64,26 @@ new BurgerMenu().init();
  * На кнопку для закрытия окна добавь класс button-close
  */
 // togglePopupWindows();
+
+const allSelects = document.querySelectorAll('[data-select]');
+
+for (const select of allSelects) {
+  console.log(select);
+  new CustomSelect(select.dataset.select);
+}
+
+const addNewComplect = () => {
+  const addButton = document.querySelector('.form-rent__add');
+  const listContainer = document.querySelector('.form-rent__list');
+
+  addButton.addEventListener('click', (e) => {
+    const newItem = createNewComplect();
+
+    listContainer.append(newItem);
+  });
+};
+
+addNewComplect();
 
 if (document.querySelector('[data-tabs="catalog"]')) {
   const category = [
