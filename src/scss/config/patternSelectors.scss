@@ -96,3 +96,17 @@
   align-items: center;
   justify-content: center;
 }
+
+%transition-default {
+  transition: all 280ms ease-in-out 0ms;
+}
+
+%hover-active-bg {
+  &:hover {
+    background-color: rgba(#000, 3%);
+  }
+
+  &:active {
+    background-color: rgba(#000, 10%);
+  }
+}
