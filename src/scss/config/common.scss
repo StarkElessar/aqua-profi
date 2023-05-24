@@ -197,7 +197,7 @@
     overflow: hidden;
 
     img {
-      transition: $default-trans;
+      @extend %transition-default;
     }
 
     @media (max-width: em(1000)) {
@@ -220,7 +220,7 @@
     line-height: prc(22, 18);
     text-align: center;
     color: $black-80;
-    transition: $default-trans;
+    @extend %transition-default;
 
     @include mediaMx(1000) {
       padding-bottom: rem(20);
@@ -285,7 +285,7 @@
 
     font-size: rem($font-size);
     line-height: prc(22, $font-size);
-    transition: $default-trans;
+    @extend %transition-default;
 
     @include anyHover {
       color: $blue-hover;
@@ -320,6 +320,7 @@
 
     span {
       display: none;
+      @extend %transition-default;
 
       @include mediaMn(880) {
         position: relative;
@@ -329,7 +330,6 @@
         border-radius: rem(2);
         border: rem(1) solid $black-80;
         background: transparent;
-        transition: $default-trans;
 
         &::after {
           content: '';
@@ -418,6 +418,84 @@
 
     &:active {
       background-color: $blue-dark;
+    }
+  }
+}
+// ======================================================================================================================================================== //
+.custom-select {
+  position: relative;
+  width: 100%;
+
+  &.active {
+    .custom-select__trigger {
+      box-shadow: 0 0 1px 1px $blue-hover;
+
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+
+    .custom-select__list {
+      margin-top: rem(8);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  // .custom-select__trigger
+  &__trigger {
+    width: 100%;
+    height: rem(44);
+    padding: 0 rem(10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(10);
+    font-size: rem(18);
+    color: $black-80;
+    background-color: $black-5;
+    border-radius: rem(8);
+    @extend %transition-default;
+    @extend %hover-active-bg;
+
+    &::after {
+      content: '';
+      width: rem(14);
+      height: rem(14);
+      background-image: url('./../images/icons/arrow-down.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      @extend %transition-default;
+    }
+  }
+
+  // .custom-select__list
+  &__list {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: rem(8);
+    background-color: $black-5;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 -2px rem(10) rgba(#000, 10%);
+    overflow: hidden;
+    z-index: 10;
+    @extend %transition-default;
+  }
+
+  // .custom-select__option
+  &__option {
+    padding: rem(12) rem(10);
+    cursor: pointer;
+    @extend %transition-default;
+    @extend %hover-active-bg;
+
+    &.selected {
+      background-color: $blue-hover;
+      color: $white-100;
     }
   }
 }
