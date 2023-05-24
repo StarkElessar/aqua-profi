@@ -39,10 +39,45 @@
           </div>
         </div>
         <div class="form-rent__col-settings">
-          <div class="form-rent__title">Комплект мужской летний</div>
+          <div class="form-rent__type-name">Комплект мужской летний</div>
           <ul class="form-rent__list">
-            <li>
-
+            <li class="kit-settings">
+              <div class="kit-settings__grow">
+                <span class="kit-settings__label">Рост</span>
+                <div class="custom-select" data-select="client-grow">
+                  <input type="hidden" name="client_grow">
+                  <button class="custom-select__trigger" data-type="trigger" type="button">182-188</button>
+                  <ul class="custom-select__list" data-type="list">
+                    <li class="custom-select__option" data-value="170-176">170-176</li>
+                    <li class="custom-select__option" data-value="182-188">182-188</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="kit-settings__size">
+                <span class="kit-settings__label">Размер</span>
+                <div class="custom-select" data-select="client-size">
+                  <input type="hidden" name="client_size">
+                  <button class="custom-select__trigger" data-type="trigger" type="button">44-46</button>
+                  <ul class="custom-select__list" data-type="list">
+                    <li class="custom-select__option" data-value="44-46">44-46</li>
+                    <li class="custom-select__option" data-value="48-50">48-50</li>
+                    <li class="custom-select__option" data-value="52-54">52-54</li>
+                    <li class="custom-select__option" data-value="56-58">56-58</li>
+                    <li class="custom-select__option" data-value="60-62">60-62</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="kit-settings__amount">
+                <span class="kit-settings__label">Количество</span>
+                <div class="kit-settings__amount-control">
+                  <button type="button" class="minus"></button>
+                  <input type="number" placeholder="0" value="0">
+                  <button type="button" class="plus"></button>
+                </div>
+              </div>
+              <div class="kit-settings__remove">
+                <button type="button"></button>
+              </div>
             </li>
           </ul>
           <button class="form-rent__add" type="button">Добавить размер</button>
