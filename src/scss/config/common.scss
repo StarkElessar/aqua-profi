@@ -197,7 +197,7 @@
     overflow: hidden;
 
     img {
-      @extend %transition-default;
+      transition: $default-trans;
     }
 
     @media (max-width: em(1000)) {
@@ -220,7 +220,7 @@
     line-height: prc(22, 18);
     text-align: center;
     color: $black-80;
-    @extend %transition-default;
+    transition: $default-trans;
 
     @include mediaMx(1000) {
       padding-bottom: rem(20);
@@ -285,7 +285,7 @@
 
     font-size: rem($font-size);
     line-height: prc(22, $font-size);
-    @extend %transition-default;
+    transition: $default-trans;
 
     @include anyHover {
       color: $blue-hover;
@@ -320,7 +320,6 @@
 
     span {
       display: none;
-      @extend %transition-default;
 
       @include mediaMn(880) {
         position: relative;
@@ -330,6 +329,7 @@
         border-radius: rem(2);
         border: rem(1) solid $black-80;
         background: transparent;
+        transition: $default-trans;
 
         &::after {
           content: '';
