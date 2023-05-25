@@ -19,7 +19,7 @@
                 <li class="hero__item">Экономия времени и средств</li>
                 <li class="hero__item">Современный подход</li>
               </ul>
-              <button type="button" class="hero__button button">Заказать звонок</button>
+              <button type="button" class="hero__button button" data-type="cta">Заказать звонок</button>
             </div>
           </div>
           <div class="hero__image-ibg_contain hero__image-ibg_contain_second">
@@ -41,13 +41,13 @@
             "img": "images/icons/shirt.svg",
             "alt": "Гибкость",
             "title": "Гибкость",
-            "text": "Количество необходимых комплектов рабочей одежды рассчитывается с учётом потребности предприятия и при необходимости может изменяться"
+            "text": "Количество необходимых комплектов рабочей одежды рассчитывается с учётом потребности предприятия и при необходимости может изменяться"
             })
             @@include('html/advantage.html', {
             "img": "images/icons/marking.svg",
             "alt": "Индивидуальность",
             "title": "Индивидуальность",
-            "text": "Вся рабочая одежда промаркирована метками предприятия-заказчика. Это гарантирует, что после стирки сотрудник наденет именно свою одежду"
+            "text": "Вся рабочая одежда промаркирована метками предприятия-заказчика. Это гарантирует, что после стирки сотрудник наденет именно свою одежду"
             })
           </div>
 
@@ -103,21 +103,29 @@
           <div class="steps__container">
             <div class="steps__head">
               <h2 class="title steps__title">этапы работы</h2>
-              <div class="steps__text">Мы предлагаем прогрессивный метод обеспечения спецодеждой персонала с полным контролем всех этапов работы</div>
+              <div class="steps__text">Мы предлагаем прогрессивный метод обеспечения спецодеждой персонала с полным контролем всех этапов работы</div>
             </div>
             <div class="steps__preparation">
-              
+              <h3 class="steps__sub-title">Подготовительные</h3>
+              <div class="stage-group">
+                <div class="stage-group__circle" data-label="Договор">1</div>
+                <div class="stage-group__line"></div>
+                <div class="stage-group__circle" data-label="Примерка">2</div>
+                <div class="stage-group__line"></div>
+                <div class="stage-group__circle" data-label="Изготовление">3</div>
+              </div>
             </div>
             <div class="steps__main">
               <h3 class="steps__sub-title">Основные</h3>
               @@include('html/svg/circle.html', {})
+              @@include('html/svg/miniCircle.html', {})
               <ul class="steps__list">
                 <li class="steps__item">1. Передача чистой спецодежды</li>
                 <li class="steps__item">2. Сбор ипользованной спецодежды</li>
                 <li class="steps__item">3. Приём использованной спецодежды</li>
                 <li class="steps__item">4. Вывоз использованной спецодежды</li>
                 <li class="steps__item">5. Обслуживание спецодежды</li>
-                <li class="steps__item">6. Контроль качества и ремонт спецодежды</li>
+                <li class="steps__item">6. Контроль качества и ремонт спецодежды</li>
                 <li class="steps__item">7. Доставка чистой спецодежды</li>
               </ul>
             </div>
@@ -125,8 +133,8 @@
         </section>
         <section class="call">
           <div class="call__container">
-            <h2 class="call__title">Мы индивидуально подходим к каждому клиенту, выстраивая оптимальную систему обслуживания!</h2>
-            <button type="button" class="call__button button">Заказать звонок</button>
+            <h2 class="call__title">Мы индивидуально подходим к каждому клиенту, выстраивая оптимальную систему обслуживания!</h2>
+            <button type="button" class="call__button button" data-type="cta">Заказать звонок</button>
           </div>
           <div class="call__image-ibg">
             <img src="images/call/workshop.jpg" alt="Цех">
@@ -137,9 +145,9 @@
             <div class="math-complects__head">
               <h2 class="math-complects__title title">математика комплектов</h2>
               <div class="math-complects__text">
-                На каждого сотрудника отшивается 3 комплекта
-                спецодежды (больше — по желанию клиента в зависимости от сменности работников
-                предприятия и специфики работы)
+                На каждого сотрудника отшивается 3 комплекта
+                спецодежды (больше — по желанию клиента в зависимости от сменности работников
+                предприятия и специфики работы)
               </div>
             </div>
             <div class="math-complects__items">
@@ -152,19 +160,19 @@
               @@include('html/complect-item.html', {
               "class": "",
               "value": "1",
-              "where": "в запасе"
+              "where": "в запасе"
               })
               <img src="images/icons/plus-big.svg" alt="">
               @@include('html/complect-item.html', {
               "class": "",
               "value": "1",
-              "where": "на обслуживании в Аква-Профи"
+              "where": "на обслуживании в Аква-Профи"
               })
               <img src="images/icons/equality.svg" alt="">
               @@include('html/complect-item.html', {
               "class": " complect-item_more",
               "value": "3",
-              "where": "комплекта на сотрудника"
+              "where": "комплекта на сотрудника"
               })
             </div>
           </div>
@@ -217,10 +225,10 @@
       @@include('html/footer.html', {})
     </div>
     <!-- popups -->
-    <div class="popup" id="popup" aria-hidden="true">
+    <div class="popup _overlay-bg" id="popup" aria-hidden="true" data-popup="cta">
       <div class="popup__wrapper">
         <div class="popup__content">
-          <button class="popup__close" type="button">
+          <button class="popup__close button-close" type="button">
             @@include('html/svg/cross.html')
           </button>
           <div class="popup__body">

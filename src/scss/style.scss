@@ -32,6 +32,7 @@
 
 /** Подключение стилей отдельных блоков и секций */
 @import 'components/header';
+@import 'components/home';
 @import 'components/footer';
 @import 'components/overalls';
 @import 'components/product';
@@ -41,4 +42,3 @@
 @import 'components/popup';
 @import 'components/modal';
 @import 'components/formRent';
-@import 'components/home';

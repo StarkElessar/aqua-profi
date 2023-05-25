@@ -63,27 +63,29 @@ new BurgerMenu().init();
  * На обертку(враппер) окна добавь класс _overlay-bg
  * На кнопку для закрытия окна добавь класс button-close
  */
-// togglePopupWindows();
+togglePopupWindows();
 
-const allSelects = document.querySelectorAll('[data-select]');
+if (document.querySelector('.form-rent')) {
+  const allSelects = document.querySelectorAll('[data-select]');
 
-for (const select of allSelects) {
-  console.log(select);
-  new CustomSelect(select.dataset.select);
+  for (const select of allSelects) {
+    console.log(select);
+    new CustomSelect(select.dataset.select);
+  }
+
+  const addNewComplect = () => {
+    const addButton = document.querySelector('.form-rent__add');
+    const listContainer = document.querySelector('.form-rent__list');
+
+    addButton.addEventListener('click', (e) => {
+      const newItem = createNewComplect();
+
+      listContainer.append(newItem);
+    });
+  };
+
+  addNewComplect();
 }
-
-const addNewComplect = () => {
-  const addButton = document.querySelector('.form-rent__add');
-  const listContainer = document.querySelector('.form-rent__list');
-
-  addButton.addEventListener('click', (e) => {
-    const newItem = createNewComplect();
-
-    listContainer.append(newItem);
-  });
-};
-
-addNewComplect();
 
 if (document.querySelector('[data-tabs="catalog"]')) {
   const category = [

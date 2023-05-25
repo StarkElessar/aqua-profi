@@ -99,13 +99,24 @@
   display: grid;
   justify-items: center;
 
+  // .complect-item_more
+  &_more {
+    box-shadow: 2px -2px 1px 3px #dee9ef, 7px -7px 1px 3px #fff,
+      12px -12px 1px 3px #dee9ef, 16px -16px 1px 3px #fff;
+
+    .complect-item__value,
+    .complect-item__where {
+      color: $blue-100;
+    }
+  }
+
   // .complect-item__value
   &__value {
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
     font-size: rem(48);
     line-height: prc(57, 48);
-    color: #333333;
+    color: #333;
 
     &:not(:last-child) {
       margin-bottom: rem(15);
