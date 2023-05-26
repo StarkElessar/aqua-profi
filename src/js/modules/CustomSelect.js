@@ -25,14 +25,13 @@ class CustomSelect {
   }
 
   #init() {
-    const selectedItem = this.items[this.options.defaultSelected];
-
     this.trigger.setAttribute('aria-label', 'true');
     this.trigger.setAttribute('aria-expanded', 'false');
 
     /**
      * Данным состоянием теперь управляет store
      * */
+    // const selectedItem = this.items[this.options.defaultSelected];
     //this.trigger.innerText = selectedItem.dataset.value;
     //this.input.value = selectedItem.dataset.value;
     //selectedItem.classList.add(this.options.selectedClass);
@@ -74,10 +73,6 @@ class CustomSelect {
       if (this.isOpen && code === 'Escape') {
         this.close();
       }
-    });
-
-    this.select.addEventListener('focusout', (event) => {
-      //this.close();
     });
   }
 
