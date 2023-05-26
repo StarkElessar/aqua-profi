@@ -30,9 +30,12 @@ class CustomSelect {
     this.trigger.setAttribute('aria-label', 'true');
     this.trigger.setAttribute('aria-expanded', 'false');
 
-    this.trigger.innerText = selectedItem.dataset.value;
-    this.input.value = selectedItem.dataset.value;
-    selectedItem.classList.add(this.options.selectedClass);
+    /**
+     * Данным состоянием теперь управляет store
+     * */
+    //this.trigger.innerText = selectedItem.dataset.value;
+    //this.input.value = selectedItem.dataset.value;
+    //selectedItem.classList.add(this.options.selectedClass);
   }
 
   #events() {
