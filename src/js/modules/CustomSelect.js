@@ -6,6 +6,7 @@ class CustomSelect {
       activeClass: 'active',
       selectedClass: 'selected',
       autoCollapse: true,
+      onSelected: () => {},
     };
 
     this.options = Object.assign(defaultOptions, options);
@@ -14,8 +15,8 @@ class CustomSelect {
 
     if (this.select) {
       this.input = this.select.querySelector('input[type="hidden"]');
-      this.trigger = this.select.querySelector('[data-type="trigger"]');
-      this.selectList = this.select.querySelector('[data-type="list"]');
+      this.trigger = this.select.querySelector('[data-type-s="trigger"]');
+      this.selectList = this.select.querySelector('[data-type-s="list"]');
       this.items = this.selectList.querySelectorAll('[data-value]');
 
       this.#init();
@@ -54,6 +55,12 @@ class CustomSelect {
           if (this.options.autoCollapse) {
             this.close();
           }
+
+          this.options.onSelected({
+            target,
+            id: target.closest('.kit-settings').id,
+            name: this.input.name,
+          });
         }
       } else {
         if (this.isOpen) this.close();
