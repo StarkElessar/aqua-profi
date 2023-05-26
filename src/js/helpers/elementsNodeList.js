@@ -11,7 +11,7 @@ const addButton = document.querySelector('.form-rent__add');
 const listContainer = document.querySelector('.form-rent__list');
 const formRent = document.querySelector('.form-rent');
 const kitsContainer = document.querySelector('.form-rent__list');
-const counterPlaceholder = formRent.querySelector('.form-rent__bottom > div');
+const counterPlaceholder = formRent?.querySelector('.form-rent__bottom > div');
 
 export {
   html,
