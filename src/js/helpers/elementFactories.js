@@ -23,13 +23,3 @@ export const createElement = ({
 
   return element;
 };
-
-export const kitsCounterLabel = (kitsCounter) => {
-  return createElement({
-    typeElement: 'span',
-    attributes: {
-      id: 'kits-number',
-    },
-    textContent: kitsCounter,
-  });
-};
