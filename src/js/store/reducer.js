@@ -4,7 +4,16 @@ const reducer = (state = initialState, { type = 'default', kitProps }) => {
   const actions = {
     addKit: () => ({
       ...state,
-      kits: state.kits.concat([{ id: crypto.randomUUID(), count: 1 }]),
+      kits: state.kits.concat([
+        {
+          id: crypto.randomUUID(),
+          count: 1,
+          selects: {
+            client_grow: '170-176',
+            client_size: '44-46',
+          },
+        },
+      ]),
     }),
 
     removeKit: () => ({
