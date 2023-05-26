@@ -3,14 +3,15 @@ import { createElement } from './elementFactories';
 const customSelect = ({
   selectName,
   inputName,
+  inputValue,
   options = { values: [] },
-  onSelect,
 }) => {
   const input = createElement({
     typeElement: 'input',
     attributes: {
       type: 'hidden',
       name: inputName,
+      value: inputValue,
     },
   });
   const trigger = createElement({
@@ -20,20 +21,20 @@ const customSelect = ({
       'data-type-s': 'trigger',
       type: 'button',
     },
+    textContent: inputValue,
   });
 
   const items = options.values.map((value) => {
+    const isSelected = value === inputValue;
+    const className = `custom-select__option ${isSelected ? 'selected' : ''}`;
+
     return createElement({
       typeElement: 'li',
       attributes: {
-        class: 'custom-select__option',
+        class: className,
         'data-value': value,
       },
       innerText: value,
-      onclick: (e) => {
-        console.log(e, value);
-        onSelect && onSelect(value);
-      },
     });
   });
 
