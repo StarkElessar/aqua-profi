@@ -6,29 +6,21 @@
 
  * Если мы хотим добавить модуль следует его раскомментировать
  */
-import { isWebp, togglePopupWindows } from './modules';
+// import { MousePRLX } from './libs/parallaxMouse'
+// import AOS from 'aos'
+import Inputmask from 'inputmask/lib/inputmask';
+import Swiper, { Thumbs, Autoplay } from 'swiper';
 
 import BurgerMenu from './modules/BurgerMenu';
-import initMap from './modules/yandexMapLoad';
-import {
-  addButton,
-  footerMenu,
-  listContainer,
-} from './helpers/elementsNodeList';
-
 import Tabs from './modules/Tabs';
+import FormSending from './modules/FormSending';
+import initMap from './modules/yandexMapLoad';
 
-// import { MousePRLX } from './libs/parallaxMouse'
-
-// import AOS from 'aos'
-
-import Swiper, { Thumbs, Autoplay } from 'swiper';
-import CustomSelect from './modules/CustomSelect';
-import createNewKit from './helpers/createNewKit.js';
-import customSelect from './helpers/createCustomSelect.js';
+import { isWebp, togglePopupWindows } from './modules';
+import { addButton, footerMenu } from './helpers/elementsNodeList';
 import { handleAddKitButtonClick } from './helpers/eventHandlers';
-import { addListeners } from './store/addListeners.js';
-import { createStore } from './store/index.js';
+import { addListeners } from './store/addListeners';
+import { createStore } from './store';
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
