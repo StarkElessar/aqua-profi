@@ -6,17 +6,15 @@
 
  * Если мы хотим добавить модуль следует его раскомментировать
  */
-import {
-  isWebp,
-  headerFixed,
-  togglePopupWindows,
-  addTouchClass,
-  addLoadedClass,
-} from './modules';
+import { isWebp, togglePopupWindows } from './modules';
 
 import BurgerMenu from './modules/BurgerMenu';
-import initMap from './modules/yandexMapLoad.js';
-import { footerMenu } from './helpers/elementsNodeList.js';
+import initMap from './modules/yandexMapLoad';
+import {
+  addButton,
+  footerMenu,
+  listContainer,
+} from './helpers/elementsNodeList';
 
 import Tabs from './modules/Tabs';
 
@@ -24,9 +22,13 @@ import Tabs from './modules/Tabs';
 
 // import AOS from 'aos'
 
-import Swiper, { Thumbs } from 'swiper';
-import CustomSelect from './modules/CustomSelect.js';
-import { createNewComplect } from './helpers/elementFactories.js';
+import Swiper, { Thumbs, Autoplay } from 'swiper';
+import CustomSelect from './modules/CustomSelect';
+import createNewKit from './helpers/createNewKit.js';
+import customSelect from './helpers/createCustomSelect.js';
+import { handleAddKitButtonClick } from './helpers/eventHandlers';
+import { addListeners } from './store/addListeners.js';
+import { createStore } from './store/index.js';
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
@@ -65,26 +67,24 @@ new BurgerMenu().init();
  */
 togglePopupWindows();
 
+if (document.querySelector('.main-slider')) {
+  new Swiper('.main-slider', {
+    modules: [Autoplay],
+    direction: 'horizontal',
+    autoplay: { delay: 3000 },
+    speed: 800,
+    grabCursor: true,
+    spaceBetween: 20,
+    slidesPerView: 'auto',
+  });
+}
+
 if (document.querySelector('.form-rent')) {
-  const allSelects = document.querySelectorAll('[data-select]');
+  window.store = createStore();
+  console.log(store);
+  addListeners(store); // в два главных события передаём текущее состояние, для первого рендера
 
-  for (const select of allSelects) {
-    console.log(select);
-    new CustomSelect(select.dataset.select);
-  }
-
-  const addNewComplect = () => {
-    const addButton = document.querySelector('.form-rent__add');
-    const listContainer = document.querySelector('.form-rent__list');
-
-    addButton.addEventListener('click', (e) => {
-      const newItem = createNewComplect();
-
-      listContainer.append(newItem);
-    });
-  };
-
-  addNewComplect();
+  addButton.addEventListener('click', handleAddKitButtonClick(store));
 }
 
 if (document.querySelector('[data-tabs="catalog"]')) {
