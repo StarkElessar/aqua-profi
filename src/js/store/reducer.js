@@ -48,6 +48,18 @@ const reducer = (state = initialState, { type = 'default', kitProps }) => {
       ),
     }),
 
+    inputCounter: () => {
+      const updatedKits = state.kits.map((kit) =>
+        kit.id === kitProps.id
+          ? { ...kit, count: Math.max(kitProps.count, 0) }
+          : kit
+      );
+      return {
+        ...state,
+        kits: updatedKits,
+      };
+    },
+
     selectValue: () => {
       const updatedKits = state.kits.map((kit) => {
         if (kit.id === kitProps.id) {
