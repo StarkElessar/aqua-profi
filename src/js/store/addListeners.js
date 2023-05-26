@@ -1,11 +1,11 @@
 import createNewKit from '../helpers/createNewKit';
+import kitsCounterLabel from '../helpers/createCounterLabel';
 import CustomSelect from '../modules/CustomSelect';
 import {
   kitsContainer,
   formRent,
   counterPlaceholder,
 } from '../helpers/elementsNodeList';
-import { kitsCounterLabel } from '../helpers/elementFactories';
 
 const addListeners = (store) => {
   const placeholderInit = () => {
