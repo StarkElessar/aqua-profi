@@ -7,6 +7,11 @@ const burgerButton = document.querySelector('.icon-menu');
 const menu = document.querySelector('.menu');
 const lockPaddingElements = document.querySelectorAll('[data-lp]');
 const footerMenu = document.querySelector('.footer__body');
+const addButton = document.querySelector('.form-rent__add');
+const listContainer = document.querySelector('.form-rent__list');
+const formRent = document.querySelector('.form-rent');
+const kitsContainer = document.querySelector('.form-rent__list');
+const counterPlaceholder = formRent?.querySelector('.form-rent__bottom > div');
 
 export {
   html,
@@ -18,4 +23,9 @@ export {
   menu,
   lockPaddingElements,
   footerMenu,
+  addButton,
+  listContainer,
+  formRent,
+  kitsContainer,
+  counterPlaceholder,
 };

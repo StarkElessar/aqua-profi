@@ -54,7 +54,7 @@
 
   // .info-contacts__address
   &__address {
-    font-family: 'Rubik';
+    @extend %f-rubik;
     font-weight: 500;
     font-size: rem(24);
     font-style: normal;
@@ -125,7 +125,7 @@
 
   // .info-contacts__title
   &__title {
-    font-family: 'Rubik';
+    @extend %f-rubik;
     font-weight: 500;
     font-size: rem(24);
     line-height: prc(28, 24);

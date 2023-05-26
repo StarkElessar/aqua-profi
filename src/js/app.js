@@ -6,27 +6,21 @@
 
  * Если мы хотим добавить модуль следует его раскомментировать
  */
-import {
-  isWebp,
-  headerFixed,
-  togglePopupWindows,
-  addTouchClass,
-  addLoadedClass,
-} from './modules';
+// import { MousePRLX } from './libs/parallaxMouse'
+// import AOS from 'aos'
+import Inputmask from 'inputmask/lib/inputmask';
+import Swiper, { Thumbs, Autoplay } from 'swiper';
 
 import BurgerMenu from './modules/BurgerMenu';
-import initMap from './modules/yandexMapLoad.js';
-import { footerMenu } from './helpers/elementsNodeList.js';
-
 import Tabs from './modules/Tabs';
+import FormSending from './modules/FormSending';
+import initMap from './modules/yandexMapLoad';
 
-// import { MousePRLX } from './libs/parallaxMouse'
-
-// import AOS from 'aos'
-
-import Swiper, { Thumbs } from 'swiper';
-import CustomSelect from './modules/CustomSelect.js';
-import { createNewComplect } from './helpers/elementFactories.js';
+import { isWebp, togglePopupWindows } from './modules';
+import { addButton, footerMenu } from './helpers/elementsNodeList';
+import { handleAddKitButtonClick } from './helpers/eventHandlers';
+import { addListeners } from './store/addListeners';
+import { createStore } from './store';
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
@@ -65,26 +59,38 @@ new BurgerMenu().init();
  */
 togglePopupWindows();
 
+if (document.querySelector('.main-slider')) {
+  new Swiper('.main-slider', {
+    modules: [Autoplay],
+    direction: 'horizontal',
+    autoplay: { delay: 3000 },
+    speed: 800,
+    grabCursor: true,
+    spaceBetween: 20,
+    slidesPerView: 'auto',
+  });
+}
+
 if (document.querySelector('.form-rent')) {
-  const allSelects = document.querySelectorAll('[data-select]');
+  window.store = createStore();
+  console.log(store);
+  addListeners(store); // в два главных события передаём текущее состояние, для первого рендера
 
-  for (const select of allSelects) {
-    console.log(select);
-    new CustomSelect(select.dataset.select);
-  }
+  addButton.addEventListener('click', handleAddKitButtonClick(store));
+}
 
-  const addNewComplect = () => {
-    const addButton = document.querySelector('.form-rent__add');
-    const listContainer = document.querySelector('.form-rent__list');
+if (document.querySelectorAll('form')) {
+  const forms = document.querySelectorAll('form');
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
-    addButton.addEventListener('click', (e) => {
-      const newItem = createNewComplect();
+  forms.forEach((form) => {
+    new FormSending(`[data-sending="${form.dataset.sending}"]`);
+  });
 
-      listContainer.append(newItem);
-    });
-  };
-
-  addNewComplect();
+  const instanceMask = new Inputmask('+375 (99) 999-99-99');
+  phoneInputs.forEach((input) => {
+    instanceMask.mask(input);
+  });
 }
 
 if (document.querySelector('[data-tabs="catalog"]')) {

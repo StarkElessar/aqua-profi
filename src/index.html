@@ -32,25 +32,24 @@
         <div class="advantages">
           <div class="advantages__container">
             @@include('html/advantage.html', {
-            "img": "images/icons/byn.svg",
-            "alt": "Экономичность",
-            "title": "Экономичность",
-            "text": "Предприятие не несёт лишних затрат на закупку, пошив и доставку рабочей одежды"
+              "img": "images/icons/byn.svg",
+              "alt": "Экономичность",
+              "title": "Экономичность",
+              "text": "Предприятие не несёт лишних затрат на закупку, пошив и доставку рабочей одежды"
             })
             @@include('html/advantage.html', {
-            "img": "images/icons/shirt.svg",
-            "alt": "Гибкость",
-            "title": "Гибкость",
-            "text": "Количество необходимых комплектов рабочей одежды рассчитывается с учётом потребности предприятия и при необходимости может изменяться"
+              "img": "images/icons/shirt.svg",
+              "alt": "Гибкость",
+              "title": "Гибкость",
+              "text": "Количество необходимых комплектов рабочей одежды рассчитывается с учётом потребности предприятия и при необходимости может изменяться"
             })
             @@include('html/advantage.html', {
-            "img": "images/icons/marking.svg",
-            "alt": "Индивидуальность",
-            "title": "Индивидуальность",
-            "text": "Вся рабочая одежда промаркирована метками предприятия-заказчика. Это гарантирует, что после стирки сотрудник наденет именно свою одежду"
+              "img": "images/icons/marking.svg",
+              "alt": "Индивидуальность",
+              "title": "Индивидуальность",
+              "text": "Вся рабочая одежда промаркирована метками предприятия-заказчика. Это гарантирует, что после стирки сотрудник наденет именно свою одежду"
             })
           </div>
-
         </div>
         <section class="overalls-cards">
           <div class="overalls-cards__container">
@@ -60,42 +59,54 @@
                 изготавливается исходя из требований охраны труда и пожеланий заказчика с учётом специфики организации производства
               </div>
             </div>
-            <div class="overalls-cards__items">
-              @@include('html/clothing-type.html', {
-              "class":" overalls-cards__item",
-              "query":" ",
-              "img": "images/clothing/antistatic.jpg",
-              "alt": "Антистатическая одежда",
-              "type": "Антистатическая"
-              })
-              @@include('html/clothing-type.html', {
-              "class":" overalls-cards__item",
-              "query":" ",
-              "img": "images/clothing/fireproof.jpg",
-              "alt": "Огнестойкая одежда",
-              "type": "Огнестойкая"
-              })
-              @@include('html/clothing-type.html', {
-              "class":" overalls-cards__item",
-              "query":" ",
-              "img": "images/clothing/Food.jpg",
-              "alt": "Пищевая одежда",
-              "type": "Пищевая"
-              })
-              @@include('html/clothing-type.html', {
-              "class":" overalls-cards__item",
-              "query":" ",
-              "img": "images/clothing/Summer.jpg",
-              "alt": "Летняя одежда",
-              "type": "Летняя"
-              })
-              @@include('html/clothing-type.html', {
-              "class":" overalls-cards__item",
-              "query":" ",
-              "img": "images/clothing/Insulated.jpg",
-              "alt": "Утеплённая одежда",
-              "type": "Утеплённая"
-              })
+            <div class="swiper main-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  @@include('html/clothing-type.html', {
+                    "class": "",
+                    "link": "./catalog.html#antistaticheskaya",
+                    "img": "images/clothing/antistatic.jpg",
+                    "alt": "Антистатическая одежда",
+                    "type": "Антистатическая"
+                  })
+                </div>
+                <div class="swiper-slide">
+                  @@include('html/clothing-type.html', {
+                    "class": "",
+                    "link": "./catalog.html#ognestojkaya",
+                    "img": "images/clothing/fireproof.jpg",
+                    "alt": "Огнестойкая одежда",
+                    "type": "Огнестойкая"
+                  })
+                </div>
+                <div class="swiper-slide">
+                  @@include('html/clothing-type.html', {
+                    "class": "",
+                    "link": "./catalog.html#pishchevaya",
+                    "img": "images/clothing/Food.jpg",
+                    "alt": "Пищевая одежда",
+                    "type": "Пищевая"
+                  })
+                </div>
+                <div class="swiper-slide">
+                  @@include('html/clothing-type.html', {
+                    "class": "",
+                    "link": "./catalog.html#letnyaya",
+                    "img": "images/clothing/Summer.jpg",
+                    "alt": "Летняя одежда",
+                    "type": "Летняя"
+                  })
+                </div>
+                <div class="swiper-slide">
+                  @@include('html/clothing-type.html', {
+                    "class": "",
+                    "link": "./catalog.html#uteplyonnaya",
+                    "img": "images/clothing/Insulated.jpg",
+                    "alt": "Утеплённая одежда",
+                    "type": "Утеплённая"
+                  })
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -226,44 +237,45 @@
     </div>
     <!-- popups -->
     <div class="popup _overlay-bg" id="popup" aria-hidden="true" data-popup="cta">
-      <div class="popup__wrapper">
-        <div class="popup__content">
-          <button class="popup__close button-close" type="button">
-            @@include('html/svg/cross.html')
-          </button>
-          <div class="popup__body">
-            <h3 class="popup__title">Заказать звонок</h3>
-            <form action="#" class="form-popup popup__form">
-              <div class="form-popup__column form-popup__column_first">
-                <label for="name" class="form-popup__label">Имя <span>*</span></label>
-                <input class="form-popup__input" id="name" type="text" name="input" placeholder="Имя">
-              </div>
-              <fieldset class="form-popup__field">
-                <div class="form-popup__column">
-                  <label for="phone" class="form-popup__label">Телефон <span>*</span></label>
-                  <!-- при ошибке из data-error выводить текст в span -->
-                  <input class="form-popup__input" id="phone" type="tel:+3753319023" name="input" placeholder="+375 (33) 190-23-23" data-error="Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX">
-                </div>
-                <div class="form-popup__column">
-                  <label for="email" class="form-popup__label">Электронная почта</label>
-                  <input class="form-popup__input" id="email" type="email" name="input" placeholder="Электронная почта">
-                </div>
-                <div class="form-popup__column">
-                  <label for="name-company" class="form-popup__label">Название компании</label>
-                  <input class="form-popup__input" id="name-company" type="text" name="input" placeholder="Название компании">
-                </div>
-                <div class="form-popup__column">
-                  <label for="peoples" class="form-popup__label">Количество сотрудников</label>
-                  <input class="form-popup__input" id="peoples" type="text" name="input" placeholder="50 человек">
-                </div>
-              </fieldset>
+      <div class="popup__content">
+        <button class="popup__close button-close" type="button">
+          @@include('html/svg/cross.html')
+        </button>
+        <div class="popup__body">
+          <h3 class="popup__title">Заказать звонок</h3>
+          <form class="form-popup popup__form" data-sending="home">
+            <div class="form-popup__column form-popup__column_first">
+              <label for="name" class="form-popup__label">Имя <span>*</span></label>
+              <input class="form-popup__input _req" id="name" type="text" name="client_name" placeholder="Имя">
+              <span class="message-error">Поле должно быть заполнено</span>
+            </div>
+            <fieldset class="form-popup__field">
               <div class="form-popup__column">
-                <label for="message" class="form-popup__label">Название компании</label>
-                <textarea class="form-popup__input" id="message" name="message"></textarea>
+                <label for="phone" class="form-popup__label">Телефон <span>*</span></label>
+                <!-- при ошибке из data-error выводить текст в span -->
+                <input class="form-popup__input _req" id="phone" type="tel" name="client_tel" placeholder="+375 (33) 190-23-23" data-error="Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX">
+                <span class="message-error">Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX</span>
               </div>
-              <button class="form-popup__button button" type="submit">Отправить</button>
-            </form>
-          </div>
+              <div class="form-popup__column">
+                <label for="email" class="form-popup__label">Электронная почта</label>
+                <input class="form-popup__input _email" id="email" type="email" name="client_email" placeholder="Электронная почта">
+                <span class="message-error">Не корректный email</span>
+              </div>
+              <div class="form-popup__column">
+                <label for="name-company" class="form-popup__label">Название компании</label>
+                <input class="form-popup__input" id="name-company" type="text" name="company" placeholder="Название компании">
+              </div>
+              <div class="form-popup__column">
+                <label for="peoples" class="form-popup__label">Количество сотрудников</label>
+                <input class="form-popup__input" id="peoples" type="text" name="staff_number" placeholder="50 человек">
+              </div>
+            </fieldset>
+            <div class="form-popup__column">
+              <label for="message" class="form-popup__label">Название компании</label>
+              <textarea class="form-popup__input" id="message" name="client_message"></textarea>
+            </div>
+            <button class="form-popup__button button" type="submit">Отправить</button>
+          </form>
         </div>
       </div>
     </div>

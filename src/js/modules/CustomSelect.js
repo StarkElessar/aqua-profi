@@ -6,6 +6,7 @@ class CustomSelect {
       activeClass: 'active',
       selectedClass: 'selected',
       autoCollapse: true,
+      onSelected: () => {},
     };
 
     this.options = Object.assign(defaultOptions, options);
@@ -14,8 +15,8 @@ class CustomSelect {
 
     if (this.select) {
       this.input = this.select.querySelector('input[type="hidden"]');
-      this.trigger = this.select.querySelector('[data-type="trigger"]');
-      this.selectList = this.select.querySelector('[data-type="list"]');
+      this.trigger = this.select.querySelector('[data-type-s="trigger"]');
+      this.selectList = this.select.querySelector('[data-type-s="list"]');
       this.items = this.selectList.querySelectorAll('[data-value]');
 
       this.#init();
@@ -24,14 +25,16 @@ class CustomSelect {
   }
 
   #init() {
-    const selectedItem = this.items[this.options.defaultSelected];
-
     this.trigger.setAttribute('aria-label', 'true');
     this.trigger.setAttribute('aria-expanded', 'false');
 
-    this.trigger.innerText = selectedItem.dataset.value;
-    this.input.value = selectedItem.dataset.value;
-    selectedItem.classList.add(this.options.selectedClass);
+    /**
+     * Данным состоянием теперь управляет store
+     * */
+    // const selectedItem = this.items[this.options.defaultSelected];
+    //this.trigger.innerText = selectedItem.dataset.value;
+    //this.input.value = selectedItem.dataset.value;
+    //selectedItem.classList.add(this.options.selectedClass);
   }
 
   #events() {
@@ -54,6 +57,12 @@ class CustomSelect {
           if (this.options.autoCollapse) {
             this.close();
           }
+
+          this.options.onSelected({
+            target,
+            id: target.closest('.kit-settings').id,
+            name: this.input.name,
+          });
         }
       } else {
         if (this.isOpen) this.close();
@@ -64,10 +73,6 @@ class CustomSelect {
       if (this.isOpen && code === 'Escape') {
         this.close();
       }
-    });
-
-    this.select.addEventListener('focusout', (event) => {
-      //this.close();
     });
   }
 
