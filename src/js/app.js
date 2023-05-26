@@ -87,6 +87,20 @@ if (document.querySelector('.form-rent')) {
   addButton.addEventListener('click', handleAddKitButtonClick(store));
 }
 
+if (document.querySelectorAll('form')) {
+  const forms = document.querySelectorAll('form');
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
+
+  forms.forEach((form) => {
+    new FormSending(`[data-sending="${form.dataset.sending}"]`);
+  });
+
+  const instanceMask = new Inputmask('+375 (99) 999-99-99');
+  phoneInputs.forEach((input) => {
+    instanceMask.mask(input);
+  });
+}
+
 if (document.querySelector('[data-tabs="catalog"]')) {
   const category = [
     '#antistaticheskaya',
