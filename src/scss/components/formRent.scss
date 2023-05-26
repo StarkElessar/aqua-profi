@@ -103,7 +103,7 @@
   &__type-name {
     font-size: rem(18);
     line-height: prc(21, 18);
-    font-family: 'Rubik', sans-serif;
+    @extend %f-rubik;
     margin-bottom: rem(20);
   }
 
@@ -154,7 +154,7 @@
     }
 
     div {
-      font-family: 'Rubik', sans-serif;
+      @extend %f-rubik;
       font-size: rem(24);
       line-height: prc(28, 24);
     }

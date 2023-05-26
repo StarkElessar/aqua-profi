@@ -219,7 +219,7 @@
   padding-bottom: rem(70);
 
   &__title {
-    font-family: 'Rubik';
+    @extend %f-rubik;
     font-weight: 500;
     font-size: rem(24);
     line-height: math.div(28, 24);
@@ -253,7 +253,7 @@
 
     td {
       text-align: start;
-      font-family: 'Rubik';
+      @extend %f-rubik;
       font-weight: 500;
       font-size: rem(18);
       line-height: math.div(22, 18);

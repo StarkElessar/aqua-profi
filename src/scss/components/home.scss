@@ -29,17 +29,17 @@
   }
   // .hero__title
   &__title {
-    font-family: 'Rubik';
+    @extend %f-rubik;
     font-weight: 600;
     font-size: rem(48);
-    line-height: math.div(57, 48);
+    line-height: prc(57, 48);
     text-transform: uppercase;
     @media (min-width: em(740)) {
       color: $white-100;
     }
     @media (max-width: em(740)) {
       font-size: rem(36);
-      line-height: math.div(43, 36);
+      line-height: prc(43, 36);
     }
 
     &:not(:last-child) {
@@ -55,7 +55,7 @@
   // .hero__item
   &__item {
     font-size: rem(18);
-    line-height: math.div(22, 18);
+    line-height: prc(22, 18);
     @media (min-width: em(740)) {
       color: $white-100;
     }
@@ -182,18 +182,7 @@
   // .overalls-cards__text
   &__text {
     font-size: rem(24);
-    line-height: math.div(29, 24);
-  }
-  // .overalls-cards__items
-  &__items {
-    display: flex;
-    gap: rem(10);
-    overflow-x: auto;
-    padding-bottom: rem(10);
-  }
-  // .overalls-cards__item
-  &__item {
-    flex: 0 0 rem(235);
+    line-height: prc(29, 24);
   }
 }
 // ======================================================================================================================================================== //
@@ -217,11 +206,11 @@
   }
   // .call__title
   &__title {
-    font-family: 'Rubik';
+    @extend %f-rubik;
     font-weight: 500;
     max-width: rem(620);
     font-size: rem(24);
-    line-height: math.div(28, 24);
+    line-height: prc(28, 24);
     text-align: center;
     color: $white-100;
   }
@@ -323,10 +312,10 @@
 
   // .steps__sub-title
   &__sub-title {
-    font-family: 'Rubik';
+    @extend %f-rubik;
     font-weight: 500;
     font-size: rem(24);
-    line-height: math.div(28, 24);
+    line-height: prc(28, 24);
     color: $black-80;
   }
 
@@ -341,7 +330,7 @@
   // .steps__item
   &__item {
     font-size: rem(16);
-    line-height: math.div(19, 16);
+    line-height: prc(19, 16);
     color: $black-80;
 
     &:not(:last-child) {
@@ -382,7 +371,7 @@
     width: rem(70);
     height: rem(70);
     color: $blue-100;
-    font-family: 'Rubik', sans-serif;
+    @extend %f-rubik;
     font-size: rem(36);
     line-height: prc(43, 36);
     font-weight: 500;
@@ -401,7 +390,7 @@
       transform: translateX(-50%);
       content: attr(data-label);
       color: $blue-100;
-      font-family: 'Rubik', sans-serif;
+      @extend %f-rubik;
       font-size: rem(24);
       line-height: prc(28, 24);
       text-align: center;
@@ -547,5 +536,11 @@
       height: rem(65);
       width: rem(155);
     }
+  }
+}
+
+.main-slider {
+  .swiper-slide {
+    width: rem(235);
   }
 }
