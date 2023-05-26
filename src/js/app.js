@@ -73,7 +73,6 @@ if (document.querySelector('.main-slider')) {
 
 if (document.querySelector('.form-rent')) {
   window.store = createStore();
-  console.log(store);
   addListeners(store); // в два главных события передаём текущее состояние, для первого рендера
 
   addButton.addEventListener('click', handleAddKitButtonClick(store));

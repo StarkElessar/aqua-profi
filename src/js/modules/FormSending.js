@@ -54,7 +54,6 @@ class FormSending {
       this.errorCount = this.validateForm(this.form);
       const formData = new FormData(this.form);
       const jsonObject = this.parseFormDataToJson(formData);
-      console.log(jsonObject);
 
       if (!this.errorCount) {
         this.form.classList.add('_sending');
@@ -113,7 +112,6 @@ class FormSending {
     let counterError = 0;
 
     this.inputsToValidate.forEach((input) => {
-      console.log(213, input);
       this.removeClassError(input);
 
       const isEmail = input.classList.contains('_email');

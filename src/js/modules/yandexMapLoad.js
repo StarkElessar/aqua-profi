@@ -88,8 +88,6 @@ function initMap() {
         ) {
           script.onreadystatechange = null;
           callback();
-
-          console.log(123);
         }
       };
     } else {
