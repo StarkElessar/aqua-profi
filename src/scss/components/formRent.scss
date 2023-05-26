@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: rem(8);
 
-    &._err {
+    &._error {
       input {
         box-shadow: 0 0 1px 1px $red-error;
       }
@@ -30,6 +30,10 @@
       font-size: rem(16);
       line-height: prc(19, 16);
       font-weight: 500;
+
+      span {
+        color: $red-error;
+      }
     }
 
     input {
@@ -155,7 +159,7 @@
 
     div {
       @extend %f-rubik;
-      font-size: rem(24);
+      font-size: rem(21);
       line-height: prc(28, 24);
     }
   }
@@ -222,22 +226,13 @@
     background-color: $black-5;
 
     button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @extend %flex-center;
       flex: 0 0 rem(44);
       height: 100%;
       border-radius: rem(8);
       background-color: $black-5;
       transition: $default-trans;
-
-      &:hover {
-        background-color: rgba(#000, 5%);
-      }
-
-      &:active {
-        background-color: rgba(#000, 10%);
-      }
+      @extend %hover-active-bg;
 
       &.minus,
       &.plus {
@@ -295,9 +290,7 @@
     button {
       width: rem(44);
       height: rem(44);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @extend %flex-center;
       border-radius: rem(8);
       background-color: rgba(#000, 3%);
       transition: $default-trans;
