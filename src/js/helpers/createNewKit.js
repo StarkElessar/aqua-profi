@@ -1,10 +1,6 @@
 import { createElement } from './elementFactories';
 import customSelect from './createCustomSelect';
 
-export const handleButtonDisabledState = (button, input) => {
-  button.disabled = input.value <= '1';
-};
-
 const createLabel = (textLabel) => {
   return createElement({
     typeElement: 'span',
@@ -15,19 +11,26 @@ const createLabel = (textLabel) => {
   });
 };
 
-const createNewKit = ({ kitOptions: { id, count = 1 }, dispatch }) => {
+const createNewKit = ({ kitOptions, dispatch }) => {
+  const {
+    id,
+    count = 1,
+    selects: { client_grow, client_size },
+  } = kitOptions;
+
   const clientGrowSelect = customSelect({
     selectName: crypto.randomUUID(),
     inputName: 'client_grow',
+    inputValue: client_grow,
     options: {
       values: ['170-176', '182-188'],
     },
-    onSelect: () => dispatch({ type: 'selectValue', kitProps: { id } }),
   });
 
   const clientSizeSelect = customSelect({
     selectName: crypto.randomUUID(),
     inputName: 'client_size',
+    inputValue: client_size,
     options: {
       values: ['44-46', '48-50', '52-54', '56-58', '60-62'],
     },
@@ -39,7 +42,7 @@ const createNewKit = ({ kitOptions: { id, count = 1 }, dispatch }) => {
       type: 'button',
       'data-id': id,
     },
-    onclick: ({ target }) => {
+    onclick: () => {
       dispatch({ type: 'removeKit', kitProps: { id } });
       dispatch({ type: 'updateCounter' });
     },
@@ -73,9 +76,11 @@ const createNewKit = ({ kitOptions: { id, count = 1 }, dispatch }) => {
       placeholder: '0',
       value: count,
       type: 'number',
+      name: 'kit_count',
     },
-    oninput: ({ target }) => {
-      console.log(target);
+    onchange: ({ target: { value } }) => {
+      dispatch({ type: 'inputCounter', kitProps: { count: value, id } });
+      dispatch({ type: 'updateCounter' });
     },
   });
   const buttonMinus = createElement({
@@ -84,7 +89,7 @@ const createNewKit = ({ kitOptions: { id, count = 1 }, dispatch }) => {
       class: 'minus',
       type: 'button',
     },
-    onclick: ({ target }) => {
+    onclick: () => {
       dispatch({ type: 'counterDec', kitProps: { id } });
       dispatch({ type: 'updateCounter' });
     },
@@ -95,7 +100,7 @@ const createNewKit = ({ kitOptions: { id, count = 1 }, dispatch }) => {
       class: 'plus',
       type: 'button',
     },
-    onclick: ({ target }) => {
+    onclick: () => {
       dispatch({ type: 'counterInc', kitProps: { id } });
       dispatch({ type: 'updateCounter' });
     },
