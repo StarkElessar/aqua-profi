@@ -5,7 +5,7 @@ const initialState = {
       id: crypto.randomUUID(),
       count: 1,
       selects: {
-        client_size: '46-46',
+        client_size: '44-46',
         client_grow: '170-176',
       },
     },
