@@ -4,22 +4,22 @@
       @@include('svg/cross.html')
     </button>
     <h3 class="modal__title">Заявка на аренду</h3>
-    <form class="form-rent">
+    <form class="form-rent" data-sending="rent">
       <fieldset class="form-rent__grid">
-        <div class="form-rent__field _err">
-          <label for="client-name">Имя *</label>
+        <div class="form-rent__field">
+          <label for="client-name">Имя <span>*</span></label>
           <input class="_req" id="client-name" type="text" placeholder="Иван" name="client_name">
           <span class="message-error">Поле должно быть заполнено</span>
         </div>
-        <div class="form-rent__field _err">
-          <label for="client-tel">Телефон *</label>
+        <div class="form-rent__field">
+          <label for="client-tel">Телефон <span>*</span></label>
           <input class="_req" id="client-tel" type="tel" placeholder="+375 (XX) XXX-XX-XX" name="client_tel">
           <span class="message-error">Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX</span>
         </div>
         <div class="form-rent__field">
           <label for="client-email">Электронная почта</label>
           <input id="client-email" type="email" placeholder="Ivan12345@example.by" name="client_email">
-          <span class="message-error"></span>
+          <span class="message-error">Не корректный email</span>
         </div>
         <div class="form-rent__field">
           <label for="company">Название компании</label>
@@ -40,46 +40,7 @@
         </div>
         <div class="form-rent__col-settings">
           <div class="form-rent__type-name">Комплект мужской летний</div>
-          <ul class="form-rent__list">
-<!--            <li class="kit-settings">-->
-<!--              <div class="kit-settings__grow">-->
-<!--                <span class="kit-settings__label">Рост</span>-->
-<!--                <div class="custom-select" data-select="client_grow">-->
-<!--                  <input type="hidden" name="client_grow">-->
-<!--                  <button class="custom-select__trigger" data-type-s="trigger" type="button">182-188</button>-->
-<!--                  <ul class="custom-select__list" data-type-s="list">-->
-<!--                    <li class="custom-select__option" data-value="170-176">170-176</li>-->
-<!--                    <li class="custom-select__option" data-value="182-188">182-188</li>-->
-<!--                  </ul>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="kit-settings__size">-->
-<!--                <span class="kit-settings__label">Размер</span>-->
-<!--                <div class="custom-select" data-select="client_size">-->
-<!--                  <input type="hidden" name="client_size">-->
-<!--                  <button class="custom-select__trigger" data-type-s="trigger" type="button">44-46</button>-->
-<!--                  <ul class="custom-select__list" data-type-s="list">-->
-<!--                    <li class="custom-select__option" data-value="44-46">44-46</li>-->
-<!--                    <li class="custom-select__option" data-value="48-50">48-50</li>-->
-<!--                    <li class="custom-select__option" data-value="52-54">52-54</li>-->
-<!--                    <li class="custom-select__option" data-value="56-58">56-58</li>-->
-<!--                    <li class="custom-select__option" data-value="60-62">60-62</li>-->
-<!--                  </ul>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="kit-settings__amount">-->
-<!--                <span class="kit-settings__label">Количество</span>-->
-<!--                <div class="kit-settings__amount-control">-->
-<!--                  <button type="button" class="minus"></button>-->
-<!--                  <input type="number" placeholder="0" value="0">-->
-<!--                  <button type="button" class="plus"></button>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="kit-settings__remove">-->
-<!--                <button type="button"></button>-->
-<!--              </div>-->
-<!--            </li>-->
-          </ul>
+          <ul class="form-rent__list"></ul>
           <button class="form-rent__add" type="button">Добавить размер</button>
         </div>
       </fieldset>

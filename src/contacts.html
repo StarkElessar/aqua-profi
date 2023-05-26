@@ -62,18 +62,18 @@
                             </div>
                             <div class="info-contacts__foot">
                                 <h2 class="info-contacts__title">Обратная связь</h2>
-                                <form action="#" class="form-contacts info-contacts__form">
+                                <form class="form-contacts info-contacts__form" data-sending="contacts">
                                     <div class="form-contacts__column">
                                         <label for="name" class="form-contacts__label">Имя <span>*</span></label>
-                                        <input class="form-contacts__input" type="text" id="name" name="name" placeholder="Иван">
+                                        <input class="form-contacts__input" type="text" id="name" name="client_name" placeholder="Иван">
                                     </div>
                                     <div class="form-contacts__column">
                                         <label for="phone" class="form-contacts__label">Телефон <span>*</span></label>
-                                        <input class="form-contacts__input" type="tel" id="phone" name="phone" placeholder="+375331234567">
+                                        <input class="form-contacts__input" type="tel" id="phone" name="client_tel" placeholder="+375331234567">
                                     </div>
                                     <div class="form-contacts__column">
                                         <label for="email" class="form-contacts__label">Электронная почта</label>
-                                        <input class="form-contacts__input" type="email" id="email" name="email" placeholder="Ivan12345@example.by">
+                                        <input class="form-contacts__input" type="email" id="email" name="client_email" placeholder="Ivan12345@example.by">
                                     </div>
                                     <button class="form-contacts__button button" type="submit">Заказать звонок</button>
                                 </form>
