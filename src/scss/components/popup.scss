@@ -60,18 +60,6 @@
     margin-bottom: rem(15);
     text-align: center;
   }
-
-  &_show {
-    z-index: 150;
-    pointer-events: auto;
-    overflow: auto;
-    visibility: visible;
-
-    .popup__content {
-      visibility: visible;
-      transform: scale(1);
-    }
-  }
 }
 
 .form-popup {
@@ -80,13 +68,20 @@
 
   // .form-popup__column
   &__column {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: rem(10);
+
+    &._error {
+      .message-error {
+        display: block;
+      }
+    }
 
     span {
       padding-top: rem(8);
       font-size: rem(14);
-      line-height: math.div(17, 14);
+      line-height: prc(17, 14);
       color: $red-error;
     }
 
@@ -119,7 +114,12 @@
   &__input {
     background: $black-5;
     border-radius: rem(8);
-    padding: rem(11) rem(15);
+    height: rem(40);
+    padding: 0 rem(15);
+
+    &._error {
+      box-shadow: 0 0 1px 1px $red-error;
+    }
 
     &::placeholder {
       font-size: rem(18);
@@ -146,6 +146,11 @@
       width: 100%;
     }
   }
+}
+
+.message-error {
+  display: none;
+  color: $red-error;
 }
 
 textarea.form-popup__input {
