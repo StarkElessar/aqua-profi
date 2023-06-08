@@ -10,6 +10,7 @@
 // import AOS from 'aos'
 import Inputmask from 'inputmask/lib/inputmask';
 import Swiper, { Thumbs, Autoplay } from 'swiper';
+import { Fancybox } from "@fancyapps/ui";
 
 import BurgerMenu from './modules/BurgerMenu';
 import Tabs from './modules/Tabs';
@@ -210,3 +211,5 @@ window.addEventListener('resize', () => {
     document.removeEventListener('click', footerMenuCollapsable);
   }
 });
+
+Fancybox.bind('[data-fancybox="gallery"]');

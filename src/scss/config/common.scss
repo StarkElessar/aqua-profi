@@ -510,3 +510,17 @@
     }
   }
 }
+
+// fancybox styles
+[data-fancybox] {
+  cursor: pointer;
+}
+
+.f-button {
+  svg {
+    stroke: #fff;
+  }
+  :hover {
+    background-color: $black-80;
+  }
+}
