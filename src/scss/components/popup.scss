@@ -1,15 +1,38 @@
 .popup {
+  position: fixed;
   padding: rem(30) rem(10);
-  @extend %flex-center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, 20%);
+  opacity: 0;
+  overflow-y: auto;
+  visibility: hidden;
+  z-index: 2000;
+  transition: opacity 0.3s ease-in-out;
+
+  &._is-open {
+    opacity: 1;
+    visibility: visible;
+
+    .popup__content {
+      transform: translateY(0);
+    }
+  }
 
   @include mediaMx(510) {
     padding: 0;
-    display: block;
   }
 
-  &._is-open {
-    .popup__content {
-      transform: translateY(0);
+  // .popup__wrapper
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+
+    @include mediaMx(510) {
+      align-items: unset;
     }
   }
 
@@ -17,6 +40,7 @@
   &__content {
     position: relative;
     padding: rem(30) rem(50);
+    margin: 0 auto;
     width: 100%;
     max-width: rem(690);
     background-color: $white-100;
@@ -157,4 +181,6 @@ textarea.form-popup__input {
   height: rem(155);
   width: 100%;
   resize: none;
+  padding-top: rem(15);
+  padding-bottom: rem(15);
 }

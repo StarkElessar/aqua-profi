@@ -1,55 +1,58 @@
-<div class="modal _overlay-bg " data-popup="form-rent" aria-hidden="true">
-  <div class="modal__body">
-    <button class="modal__close button-close" type="button">
-      @@include('svg/cross.html')
-    </button>
-    <h3 class="modal__title">Заявка на аренду</h3>
-    <form class="form-rent" data-sending="rent">
-      <fieldset class="form-rent__grid">
-        <div class="form-rent__field">
-          <label for="client-name">Имя <span>*</span></label>
-          <input class="_req" id="client-name" type="text" placeholder="Иван" name="client_name">
-          <span class="message-error">Поле должно быть заполнено</span>
-        </div>
-        <div class="form-rent__field">
-          <label for="client-tel">Телефон <span>*</span></label>
-          <input class="_req" id="client-tel" type="tel" placeholder="+375 (XX) XXX-XX-XX" name="client_tel">
-          <span class="message-error">Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX</span>
-        </div>
-        <div class="form-rent__field">
-          <label for="client-email">Электронная почта</label>
-          <input id="client-email" type="email" placeholder="Ivan12345@example.by" name="client_email">
-          <span class="message-error">Не корректный email</span>
-        </div>
-        <div class="form-rent__field">
-          <label for="company">Название компании</label>
-          <input id="company" type="text" placeholder="Самбреро" name="company">
-          <span class="message-error"></span>
-        </div>
-        <div class="form-rent__field">
-          <label for="staff-number">Количество сотрудников</label>
-          <input id="staff-number" type="number" placeholder="50 человек" name="staff_number">
-          <span class="message-error"></span>
-        </div>
-      </fieldset>
-      <fieldset class="form-rent__set">
-        <div class="form-rent__col-image">
-          <div class="form-rent__image-ibg">
-            <img src="images/product/image01.png" alt="">
+<div class="popup" data-popup="form-rent" aria-hidden="true" data-close-overlay>
+  <div class="popup__wrapper" data-close-overlay>
+    <div class="popup__content">
+      <button class="popup__close button-close" type="button">
+        @@include('svg/cross.html')
+      </button>
+      <h3 class="popup__title">Заявка на аренду</h3>
+      <form class="form-rent" data-sending="rent">
+        <input type="hidden" name="product_name" value="Комплект мужской летний">
+        <fieldset class="form-rent__grid">
+          <div class="form-rent__field">
+            <label for="client-name">Имя <span>*</span></label>
+            <input class="_req" id="client-name" type="text" placeholder="Иван" name="client_name">
+            <span class="message-error">Поле должно быть заполнено</span>
           </div>
-        </div>
-        <div class="form-rent__col-settings">
-          <div class="form-rent__type-name">Комплект мужской летний</div>
-          <ul class="form-rent__list"></ul>
-          <button class="form-rent__add" type="button">Добавить размер</button>
-        </div>
-      </fieldset>
-      <fieldset class="form-rent__bottom">
-        <div>
-          Количество комплектов:
-        </div>
-        <button class="button form-rent__submit" type="submit">Отправить</button>
-      </fieldset>
-    </form>
+          <div class="form-rent__field">
+            <label for="client-tel">Телефон <span>*</span></label>
+            <input class="_req" id="client-tel" type="tel" placeholder="+375 (XX) XXX-XX-XX" name="client_tel">
+            <span class="message-error">Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX</span>
+          </div>
+          <div class="form-rent__field">
+            <label for="client-email">Электронная почта</label>
+            <input id="client-email" type="email" placeholder="Ivan12345@example.by" name="client_email">
+            <span class="message-error">Не корректный email</span>
+          </div>
+          <div class="form-rent__field">
+            <label for="company">Название компании</label>
+            <input id="company" type="text" placeholder="Самбреро" name="company">
+            <span class="message-error"></span>
+          </div>
+          <div class="form-rent__field">
+            <label for="staff-number">Количество сотрудников</label>
+            <input id="staff-number" type="number" placeholder="50 человек" name="staff_number">
+            <span class="message-error"></span>
+          </div>
+        </fieldset>
+        <fieldset class="form-rent__set">
+          <div class="form-rent__col-image">
+            <div class="form-rent__image-ibg">
+              <img src="images/product/image01.png" alt="">
+            </div>
+          </div>
+          <div class="form-rent__col-settings">
+            <div class="form-rent__type-name">Комплект мужской летний</div>
+            <ul class="form-rent__list"></ul>
+            <button class="form-rent__add" type="button">Добавить размер</button>
+          </div>
+        </fieldset>
+        <fieldset class="form-rent__bottom">
+          <div>
+            Количество комплектов:
+          </div>
+          <button class="button form-rent__submit" type="submit">Отправить</button>
+        </fieldset>
+      </form>
+    </div>
   </div>
 </div>

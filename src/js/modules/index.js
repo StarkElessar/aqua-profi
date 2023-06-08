@@ -81,23 +81,25 @@ const togglePopupWindows = () => {
         `[data-popup="${target.dataset.type}"]`
       );
 
-      if (document.querySelector('._is-open')) {
-        document.querySelectorAll('._is-open').forEach((modal) => {
+      if (document.querySelector('[data-popup]._is-open')) {
+        document.querySelectorAll('[data-popup]._is-open').forEach((modal) => {
           modal.classList.remove('_is-open');
         });
       }
 
       popup.classList.add('_is-open');
+      popup.setAttribute('aria-hidden', 'false');
       toggleBodyLock(true);
     }
 
     if (
-      target.classList.contains('_overlay-bg') ||
-      target.closest('.button-close')
+      target.closest('.button-close') ||
+      target.hasAttribute('data-close-overlay')
     ) {
-      const popup = target.closest('._overlay-bg');
+      const popup = target.closest('[data-popup]');
 
       popup.classList.remove('_is-open');
+      popup.setAttribute('aria-hidden', 'true');
       toggleBodyLock(false);
     }
   });
