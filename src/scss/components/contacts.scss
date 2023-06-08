@@ -166,6 +166,13 @@
   &__column {
     display: grid;
     gap: rem(8);
+    align-self: start;
+
+    &._error {
+      .message-error {
+        display: block;
+      }
+    }
 
     @media (min-width: em(990)) {
       &:nth-child(3) {
@@ -236,5 +243,10 @@
   // .form-contacts__button
   &__button {
     flex: 1 1 rem(296);
+
+    @include mediaMn(990) {
+      align-self: start;
+      margin-top: rem(26);
+    }
   }
 }

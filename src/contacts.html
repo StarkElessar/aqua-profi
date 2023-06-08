@@ -65,15 +65,18 @@
                                 <form class="form-contacts info-contacts__form" data-sending="contacts">
                                     <div class="form-contacts__column">
                                         <label for="name" class="form-contacts__label">Имя <span>*</span></label>
-                                        <input class="form-contacts__input" type="text" id="name" name="client_name" placeholder="Иван">
+                                        <input class="form-contacts__input _req" type="text" id="name" name="client_name" placeholder="Иван">
+                                        <span class="message-error">Поле должно быть заполнено</span>
                                     </div>
                                     <div class="form-contacts__column">
                                         <label for="phone" class="form-contacts__label">Телефон <span>*</span></label>
-                                        <input class="form-contacts__input" type="tel" id="phone" name="client_tel" placeholder="+375331234567">
+                                        <input class="form-contacts__input _req" type="tel" id="phone" name="client_tel" placeholder="+375 (33) 123-45-67">
+                                        <span class="message-error">Укажите корректный номер телефона в формате: +375 (XX) XXX-XX-XX</span>
                                     </div>
                                     <div class="form-contacts__column">
                                         <label for="email" class="form-contacts__label">Электронная почта</label>
-                                        <input class="form-contacts__input" type="email" id="email" name="client_email" placeholder="Ivan12345@example.by">
+                                        <input class="form-contacts__input _email" type="email" id="email" name="client_email" placeholder="Ivan12345@example.by">
+                                        <span class="message-error">Не корректный email</span>
                                     </div>
                                     <button class="form-contacts__button button" type="submit">Заказать звонок</button>
                                 </form>
