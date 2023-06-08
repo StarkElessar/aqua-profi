@@ -9,7 +9,7 @@ const copyRootFiles = () => {
   };
 
   /** Добавляем файлы, которые нужны в корне проекта */
-  const files = ['favicon.ico', '.htaccess'];
+  const files = ['favicon.ico', '.htaccess', 'server.php'];
 
   return gulp
     .src(plugins.concat(filePaths.srcFolder, files), config)
