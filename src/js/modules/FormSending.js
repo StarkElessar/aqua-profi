@@ -8,7 +8,7 @@ class FormSending {
     const defaultOptions = {
       timeToDelete: 3000,
       emailRegex: /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,8})+$/,
-      actionEndpoint: './../files/php/sendTelegram.php',
+      actionEndpoint: '/server.php',
       errorMessages: {
         missingFormFields: 'Ошибка: отсутствует форма или обязательные поля',
         emptyRequiredFields: 'Заполните обязательные поля',
@@ -59,15 +59,17 @@ class FormSending {
         this.form.classList.add('_sending');
         const response = await this.sendPostRequest({
           url: this.options.actionEndpoint,
-          jsonObject,
+          data: JSON.stringify(jsonObject),
         });
 
         if (response.status === 200) {
           this.form.classList.remove('_sending');
+          console.log(response);
           //this.showModal(null, false);
         } else {
           console.log('Что-то пошло не так');
           this.form.classList.remove('_sending');
+          console.log(response);
           //this.showModal(this.options.errorMessages.genericError);
         }
       } else {
@@ -148,8 +150,12 @@ class FormSending {
   }
 
   async sendPostRequest({ url, data }) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
     const response = await fetch(url, {
       method: 'POST',
+      headers,
       body: data,
     });
 

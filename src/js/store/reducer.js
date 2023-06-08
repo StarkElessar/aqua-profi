@@ -1,4 +1,5 @@
 import { initialState } from './initialState';
+import { uuIdV4 } from '../helpers/randomId.js';
 
 const reducer = (state = initialState, { type = 'default', kitProps }) => {
   const actions = {
@@ -6,7 +7,7 @@ const reducer = (state = initialState, { type = 'default', kitProps }) => {
       ...state,
       kits: state.kits.concat([
         {
-          id: crypto.randomUUID(),
+          id: uuIdV4(),
           count: 1,
           selects: {
             client_grow: '170-176',

@@ -1,5 +1,6 @@
 import { createElement } from './elementFactories';
 import customSelect from './createCustomSelect';
+import { uuIdV4 } from './randomId.js';
 
 const createLabel = (textLabel) => {
   return createElement({
@@ -19,7 +20,7 @@ const createNewKit = ({ kitOptions, dispatch }) => {
   } = kitOptions;
 
   const clientGrowSelect = customSelect({
-    selectName: crypto.randomUUID(),
+    selectName: uuIdV4(),
     inputName: 'client_grow',
     inputValue: client_grow,
     options: {
@@ -28,7 +29,7 @@ const createNewKit = ({ kitOptions, dispatch }) => {
   });
 
   const clientSizeSelect = customSelect({
-    selectName: crypto.randomUUID(),
+    selectName: uuIdV4(),
     inputName: 'client_size',
     inputValue: client_size,
     options: {
