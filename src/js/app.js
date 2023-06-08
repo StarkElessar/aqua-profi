@@ -10,14 +10,14 @@
 // import AOS from 'aos'
 import Inputmask from 'inputmask/lib/inputmask';
 import Swiper, { Thumbs, Autoplay } from 'swiper';
-import { Fancybox } from "@fancyapps/ui";
+import { Fancybox } from '@fancyapps/ui';
 
 import BurgerMenu from './modules/BurgerMenu';
 import Tabs from './modules/Tabs';
 import FormSending from './modules/FormSending';
 import initMap from './modules/yandexMapLoad';
 
-import { isWebp, togglePopupWindows } from './modules';
+import { addLoadedClass, isWebp, togglePopupWindows } from './modules';
 import { addButton, footerMenu } from './helpers/elementsNodeList';
 import { handleAddKitButtonClick } from './helpers/eventHandlers';
 import { addListeners } from './store/addListeners';
@@ -26,6 +26,7 @@ import { createStore } from './store';
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
  */
+addLoadedClass();
 isWebp();
 
 /* Добавление класса touch для HTML если браузер мобильный */

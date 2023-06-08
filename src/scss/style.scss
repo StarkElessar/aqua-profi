@@ -20,6 +20,7 @@
 	*/
 // @import 'libs/aos';
 @import 'libs/swiper';
+@import 'libs/fancybox';
 
 /** Подключение custom scrollbar для всего сайта */
 @import 'config/scrollbar';
@@ -40,5 +41,4 @@
 @import 'components/map';
 @import 'components/blog';
 @import 'components/popup';
-@import 'components/modal';
 @import 'components/formRent';

@@ -92,51 +92,13 @@
     .menu-open & {
       left: 0;
       z-index: 200;
-
-      .menu__list {
-        flex-direction: column;
-        align-items: stretch;
-        min-width: 100%;
-      }
-
-      .menu__item {
-        padding: rem(12) rem(15);
-        background: $white-100;
-        border-radius: rem(8);
-        overflow: hidden;
-        transition: $default-trans;
-      }
-
-      .menu__link {
-        justify-content: space-between;
-        font-size: rem(24);
-        line-height: prc(29, 24);
-      }
-
-      .menu__sublist {
-        position: static;
-        min-width: unset;
-        height: 0;
-        padding: 0;
-        gap: rem(8);
-        overflow: hidden;
-        transition: $default-trans;
-
-        .menu__item {
-          padding: 0;
-        }
-
-        &._open {
-          height: max-content;
-          margin-top: rem(12);
-        }
-      }
     }
   }
 
   @include mediaMx(390) {
     width: 100%;
   }
+
   // .menu__list
   &__list {
     display: flex;
@@ -145,6 +107,12 @@
 
     @include mediaMx(1100) {
       gap: rem(20);
+    }
+
+    @include mediaMx(990) {
+      flex-direction: column;
+      align-items: stretch;
+      min-width: 100%;
     }
   }
 
@@ -168,16 +136,43 @@
       visibility: visible;
       opacity: 0.9;
       top: rem(48);
+
+      @include mediaMx(990) {
+        height: max-content;
+        margin-top: rem(12);
+      }
     }
 
     .menu__link {
       font-weight: 400;
+    }
+
+    @include mediaMx(990) {
+      position: static;
+      min-width: unset;
+      height: 0;
+      padding: 0;
+      gap: rem(8);
+      overflow: hidden;
+      transition: $default-trans;
+
+      .menu__item {
+        padding: 0;
+      }
     }
   }
 
   // .menu__item
   &__item {
     position: relative;
+
+    @include mediaMx(990) {
+      padding: rem(12) rem(15);
+      background: $white-100;
+      border-radius: rem(8);
+      overflow: hidden;
+      transition: $default-trans;
+    }
   }
 
   // .menu__link
@@ -227,6 +222,12 @@
       svg {
         max-width: 100%;
       }
+    }
+
+    @include mediaMx(990) {
+      justify-content: space-between;
+      font-size: rem(24);
+      line-height: prc(29, 24);
     }
   }
 
