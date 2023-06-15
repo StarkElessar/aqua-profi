@@ -17,8 +17,13 @@ import Tabs from './modules/Tabs';
 import FormSending from './modules/FormSending';
 import initMap from './modules/yandexMapLoad';
 
-import { addLoadedClass, isWebp, togglePopupWindows } from './modules';
-import { addButton, footerMenu } from './helpers/elementsNodeList';
+import {
+  addLoadedClass,
+  addTouchClass,
+  isWebp,
+  togglePopupWindows,
+} from './modules';
+import { addButton, footerMenu, html } from './helpers/elementsNodeList';
 import { handleAddKitButtonClick } from './helpers/eventHandlers';
 import { addListeners } from './store/addListeners';
 import { createStore } from './store';
@@ -26,6 +31,7 @@ import { createStore } from './store';
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
  */
+addTouchClass();
 addLoadedClass();
 isWebp();
 
@@ -95,15 +101,12 @@ if (document.querySelectorAll('form')) {
 }
 
 if (document.querySelector('[data-tabs="catalog"]')) {
-  const category = [
-    '#antistaticheskaya',
-    '#ognestojkaya',
-    '#pishchevaya',
-    '#letnyaya',
-    '#uteplyonnaya',
-  ];
-
-  const categoryId = category.indexOf(location.hash);
+  const tabsNav = document.querySelector('.tabs__nav');
+  const categories = tabsNav.querySelectorAll('[data-category]');
+  const idCategories = Array.from(categories).map(
+    (item) => `#${item.dataset.category}`
+  );
+  const categoryId = idCategories.indexOf(location.hash);
   const tabId = categoryId < 0 ? 0 : categoryId;
 
   new Tabs('catalog', {
@@ -122,45 +125,6 @@ const setClassCollapsable = () => {
   footerMenu.classList.toggle('collapsable', innerWidth <= 510);
 };
 
-const toggleSubList = () => {
-  const closeElements = (elements, className) => {
-    elements.forEach((element) => element.classList.remove(className));
-  };
-
-  document.addEventListener('click', (event) => {
-    const { target } = event;
-    const activeLinks = document.querySelectorAll(
-      '[data-target="sublist"]._active'
-    );
-    const visibleSublists = document.querySelectorAll('.menu__sublist._open');
-
-    if (target.closest('[data-target="sublist"]')) {
-      event.preventDefault();
-      const currentLink = target.closest('[data-target="sublist"]');
-
-      if (!currentLink.classList.contains('_active')) {
-        closeElements(activeLinks, '_active');
-        closeElements(visibleSublists, '_open');
-
-        currentLink.classList.add('_active');
-        currentLink.nextElementSibling.classList.add('_open');
-      } else {
-        currentLink.classList.remove('_active');
-        currentLink.nextElementSibling.classList.remove('_open');
-      }
-    }
-
-    if (
-      !target.closest('.menu__sublist._open') &&
-      !target.closest('[data-target="sublist"]') &&
-      activeLinks.length
-    ) {
-      closeElements(activeLinks, '_active');
-      closeElements(visibleSublists, '_open');
-    }
-  });
-};
-
 const footerMenuCollapsable = ({ target }) => {
   if (footerMenu.classList.contains('collapsable')) {
     const trigger = target.closest('.column-footer__title');
@@ -177,7 +141,6 @@ const footerMenuCollapsable = ({ target }) => {
   }
 };
 
-toggleSubList();
 setClassCollapsable();
 
 if (document.querySelector('.product-slider')) {
@@ -214,3 +177,95 @@ window.addEventListener('resize', () => {
 });
 
 Fancybox.bind('[data-fancybox="gallery"]');
+const toggleSubList = () => {
+  const closeElements = (elements, className) => {
+    elements.forEach((element) => element.classList.remove(className));
+  };
+
+  const handleLinkClick = (link) => {
+    const activeLinks = document.querySelectorAll(
+      '[data-target="sublist"]._active'
+    );
+    const visibleSublists = document.querySelectorAll('.menu__sublist._open');
+
+    if (!link.classList.contains('_active')) {
+      closeElements(activeLinks, '_active');
+      closeElements(visibleSublists, '_open');
+
+      link.classList.add('_active');
+      link.nextElementSibling.classList.add('_open');
+    } else {
+      link.classList.remove('_active');
+      link.nextElementSibling.classList.remove('_open');
+    }
+  };
+
+  const handleLinkHover = (link) => {
+    const activeLinks = document.querySelectorAll(
+      '[data-target="sublist"]._active'
+    );
+    const visibleSublists = document.querySelectorAll('.menu__sublist._open');
+    const activeLink = document.querySelector(
+      '[data-target="sublist"]._active'
+    );
+    const visibleSublist = document.querySelector('.menu__sublist._open');
+
+    if (link !== activeLink) {
+      closeElements(activeLinks, '_active');
+      closeElements(visibleSublists, '_open');
+
+      link.classList.add('_active');
+      link.nextElementSibling.classList.add('_open');
+    }
+  };
+
+  const handleMouseOut = (event) => {
+    const isMouseOutSubList = event.target.closest('.menu__sublist._open');
+    const isMouseOutLink =
+      event.relatedTarget &&
+      event.relatedTarget.closest('.menu__sublist._open');
+
+    if (isMouseOutSubList && !isMouseOutLink) {
+      const subList = event.target.closest('.menu__sublist._open');
+
+      subList.classList.remove('_open');
+      subList.previousElementSibling.classList.remove('_active');
+    }
+  };
+
+  document.addEventListener('click', (event) => {
+    const { target } = event;
+    const currentLink = target.closest('[data-target="sublist"]');
+
+    if (currentLink) {
+      event.preventDefault();
+      handleLinkClick(currentLink);
+    }
+
+    if (
+      !target.closest('.menu__sublist._open') &&
+      !target.closest('[data-target="sublist"]')
+    ) {
+      closeElements(
+        document.querySelectorAll('[data-target="sublist"]._active'),
+        '_active'
+      );
+      closeElements(document.querySelectorAll('.menu__sublist._open'), '_open');
+    }
+  });
+
+  if (!html.classList.contains('touch')) {
+    document.addEventListener('mouseover', (event) => {
+      const { target } = event;
+      const currentLink = target.closest('[data-target="sublist"]');
+
+      if (currentLink) {
+        handleLinkHover(currentLink);
+      }
+    });
+
+    document.addEventListener('mouseout', handleMouseOut);
+  }
+};
+
+toggleSubList();
