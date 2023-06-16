@@ -1,7 +1,11 @@
-import { initialState } from './initialState';
-import { uuIdV4 } from '../helpers/randomId.js';
+import { uuIdV4 } from "../helpers/randomId.js";
 
-const reducer = (state = initialState, { type = 'default', kitProps }) => {
+const reducer = (
+  state,
+  { type = "default", kitProps },
+  defaultSize,
+  defaultGrow
+) => {
   const actions = {
     addKit: () => ({
       ...state,
@@ -10,8 +14,8 @@ const reducer = (state = initialState, { type = 'default', kitProps }) => {
           id: uuIdV4(),
           count: 1,
           selects: {
-            client_grow: '170-176',
-            client_size: '44-46',
+            client_grow: defaultGrow,
+            client_size: defaultSize,
           },
         },
       ]),
