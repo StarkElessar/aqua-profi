@@ -17,7 +17,12 @@ import Tabs from './modules/Tabs';
 import FormSending from './modules/FormSending';
 import initMap from './modules/yandexMapLoad';
 
-import { addLoadedClass, addTouchClass, isWebp, togglePopupWindows } from './modules';
+import {
+	addLoadedClass,
+	addTouchClass,
+	isWebp,
+	togglePopupWindows,
+} from './modules';
 import { addButton, footerMenu, html } from './helpers/elementsNodeList';
 import { handleAddKitButtonClick } from './helpers/eventHandlers';
 import { addListeners } from './store/addListeners';
@@ -65,6 +70,11 @@ new BurgerMenu().init();
  */
 togglePopupWindows();
 
+const urlReq =
+	location.host === 'starkelessar.github.io'
+		? 'https://starkelessar.github.io/aqua-profi/static/db.json'
+		: '/static/db.json';
+
 if (document.querySelector('.main-slider')) {
 	new Swiper('.main-slider', {
 		modules: [Autoplay],
@@ -86,32 +96,44 @@ if (document.querySelector('.form-rent')) {
 	const usingOptions = document.getElementById('using-options');
 	const featuresTable = document.getElementById('features-table');
 	const specsTable = document.getElementById('table-specs');
+	const imagePopup = document.getElementById('image-popup');
 
 	const updateProductPage = async () => {
 		const { searchParams } = new URL(location.href);
-		const { category = 'antistaticheskaya', id = '1' } = Object.fromEntries(searchParams);
+		const { category = 'antistaticheskaya', id = '11' } =
+			Object.fromEntries(searchParams);
 
 		try {
-			const res = await fetch('../static/db.json');
+			const res = await fetch(urlReq);
 
 			if (res.ok) {
 				const { categories } = await res.json();
-				const [data] = categories[category].filter((product) => product.id === id);
+				const [data] = categories[category].filter(
+					(product) => product.id === id,
+				);
 
 				console.log(data);
 
 				document.title = `Спецодежда ${data['category']} - ${data['title']}`;
 				lastBreadcrumb.textContent = data['category'];
-				thumbsSwiper.append(createSlider(data['images'], false));
-				mainSwiper.append(createSlider(data['images'], true));
+				thumbsSwiper.append(createSlider(data['images'], false, category, id));
+				mainSwiper.append(createSlider(data['images'], true, category, id));
 				title.textContent = data['title'];
 				usingOptions.textContent = `Варианты носки: ${data['usingOptions']}`;
-				data['kit'].forEach((item) => productTagContainer.append(createProductTag(item)));
-				data['moreInfo'].forEach(({ title, specs }) => specsTable.append(createSpecsTable(title, specs)));
+				data['kit'].forEach((item) =>
+					productTagContainer.append(createProductTag(item)),
+				);
+				data['moreInfo'].forEach(({ title, specs }) =>
+					specsTable.append(createSpecsTable(title, specs)),
+				);
 
 				for (const key in data['features']) {
 					featuresTable.append(tableRow(key, data['features'][key]));
 				}
+
+				imagePopup.innerHTML = `
+					<img src="images/products/${category}/${id}/${data['images'][0]}" alt="${data['title']}">
+				`;
 
 				if (document.querySelector('.product-slider')) {
 					const thumbsSwiper = new Swiper('.product-slider__thumbs', {
@@ -163,7 +185,9 @@ if (document.querySelectorAll('form')) {
 if (document.querySelector('[data-tabs="catalog"]')) {
 	const tabsNav = document.querySelector('.tabs__nav');
 	const categories = tabsNav.querySelectorAll('[data-category]');
-	const idCategories = Array.from(categories).map((item) => `#${item.dataset.category}`);
+	const idCategories = Array.from(categories).map(
+		(item) => `#${item.dataset.category}`,
+	);
 	const categoryId = idCategories.indexOf(location.hash);
 	const tabId = categoryId < 0 ? 0 : categoryId;
 
@@ -189,7 +213,9 @@ const footerMenuCollapsable = ({ target }) => {
 
 		if (trigger) {
 			if (!trigger.parentElement.classList.contains('open')) {
-				footerMenu.querySelector('.column-footer.open')?.classList.remove('open');
+				footerMenu
+					.querySelector('.column-footer.open')
+					?.classList.remove('open');
 			}
 
 			trigger.parentElement.classList.toggle('open');
@@ -220,7 +246,9 @@ const toggleSubList = () => {
 	};
 
 	const handleLinkClick = (link) => {
-		const activeLinks = document.querySelectorAll('[data-target="sublist"]._active');
+		const activeLinks = document.querySelectorAll(
+			'[data-target="sublist"]._active',
+		);
 		const visibleSublists = document.querySelectorAll('.menu__sublist._open');
 
 		if (!link.classList.contains('_active')) {
@@ -236,9 +264,13 @@ const toggleSubList = () => {
 	};
 
 	const handleLinkHover = (link) => {
-		const activeLinks = document.querySelectorAll('[data-target="sublist"]._active');
+		const activeLinks = document.querySelectorAll(
+			'[data-target="sublist"]._active',
+		);
 		const visibleSublists = document.querySelectorAll('.menu__sublist._open');
-		const activeLink = document.querySelector('[data-target="sublist"]._active');
+		const activeLink = document.querySelector(
+			'[data-target="sublist"]._active',
+		);
 		const visibleSublist = document.querySelector('.menu__sublist._open');
 
 		if (link !== activeLink) {
@@ -252,7 +284,9 @@ const toggleSubList = () => {
 
 	const handleMouseOut = (event) => {
 		const isMouseOutSubList = event.target.closest('.menu__sublist._open');
-		const isMouseOutLink = event.relatedTarget && event.relatedTarget.closest('.menu__sublist._open');
+		const isMouseOutLink =
+			event.relatedTarget &&
+			event.relatedTarget.closest('.menu__sublist._open');
 
 		if (isMouseOutSubList && !isMouseOutLink) {
 			const subList = event.target.closest('.menu__sublist._open');
@@ -271,8 +305,14 @@ const toggleSubList = () => {
 			handleLinkClick(currentLink);
 		}
 
-		if (!target.closest('.menu__sublist._open') && !target.closest('[data-target="sublist"]')) {
-			closeElements(document.querySelectorAll('[data-target="sublist"]._active'), '_active');
+		if (
+			!target.closest('.menu__sublist._open') &&
+			!target.closest('[data-target="sublist"]')
+		) {
+			closeElements(
+				document.querySelectorAll('[data-target="sublist"]._active'),
+				'_active',
+			);
 			closeElements(document.querySelectorAll('.menu__sublist._open'), '_open');
 		}
 	});
