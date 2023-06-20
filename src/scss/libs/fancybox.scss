@@ -481,6 +481,7 @@ html.with-fancybox body.hide-scrollbar {
   --f-spinner-color-1: rgba(255, 255, 255, 0.1);
   --f-spinner-color-2: #bbb;
   --f-spinner-stroke: 3.65;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -490,8 +491,9 @@ html.with-fancybox body.hide-scrollbar {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
   color: #f8f8f8;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   overflow: visible;
