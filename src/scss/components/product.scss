@@ -166,6 +166,7 @@
 	// .product-slider__main
 	&__main {
 		width: rem(460);
+		height: rem(560);
 
 		@media (max-width: em(1000)) {
 			max-width: rem(360);

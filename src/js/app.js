@@ -112,14 +112,13 @@ if (document.querySelector('.form-rent')) {
 					(product) => product.id === id,
 				);
 
-				console.log(data);
-
 				document.title = `Спецодежда ${data['category']} - ${data['title']}`;
 				lastBreadcrumb.textContent = data['category'];
 				thumbsSwiper.append(createSlider(data['images'], false, category, id));
 				mainSwiper.append(createSlider(data['images'], true, category, id));
 				title.textContent = data['title'];
 				usingOptions.textContent = `Варианты носки: ${data['usingOptions']}`;
+
 				data['kit'].forEach((item) =>
 					productTagContainer.append(createProductTag(item)),
 				);

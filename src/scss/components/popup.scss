@@ -10,7 +10,7 @@
   overflow-y: auto;
   visibility: hidden;
   z-index: 2000;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, visibility .4s;
 
   &._is-open {
     opacity: 1;
@@ -19,7 +19,6 @@
     .popup__content {
       transform: translateY(0);
       opacity: 1;
-      transition-delay: 0.1s;
     }
   }
 
