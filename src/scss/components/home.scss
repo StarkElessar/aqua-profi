@@ -144,6 +144,7 @@
     padding-bottom: rem(35);
   }
 
+  // .advantages__container
   &__container {
     @include grid-cards(fit, rem(220), 1fr) {
       align-items: start;

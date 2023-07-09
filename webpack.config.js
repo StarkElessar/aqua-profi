@@ -46,4 +46,10 @@ export const webpackConfig = (isMode) => ({
       },
     ],
   },
+
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
 });
