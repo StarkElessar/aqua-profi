@@ -79,9 +79,22 @@
 
 	// .product-preview__info
 	&__info {
+		.title {
+			@include mediaMx(1100) {
+				font-size: 30px;
+			}
+			@include mediaMx(890) {
+				font-size: 24px;
+			}
+		}
+
 		p {
 			font-size: rem(18);
 			line-height: prc(22, 18);
+
+			&:not(:last-of-type) {
+				margin-bottom: rem(8);
+			}
 
 			@include mediaMx(510) {
 				font-size: rem(16);
