@@ -97,6 +97,7 @@ if (document.querySelector('.form-rent')) {
 	const featuresTable = document.getElementById('features-table');
 	const specsTable = document.getElementById('table-specs');
 	const imagePopup = document.getElementById('image-popup');
+	const productNameInPopup = document.getElementById('product-name-hidden');
 
 	const updateProductPage = async () => {
 		const { searchParams } = new URL(location.href);
@@ -153,6 +154,8 @@ if (document.querySelector('.form-rent')) {
 
 				const defaultSize = data['size'][0];
 				const defaultGrow = data['grow'][0];
+
+				productNameInPopup.value = data['title'];
 
 				window.store = createStore(defaultSize, defaultGrow);
 				addListeners(store, data['size'], data['grow']); // в два главных события передаём текущее состояние, для первого рендера
