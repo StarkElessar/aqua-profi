@@ -1,6 +1,6 @@
 <?php
 $token = "6092505159:AAHo2CQPX2CNFLDlZ9KhN78Z-DZZUHbBXio";
-$chat_id = "-876590757";
+$chat_id = "-1001860588471";
 
 // Получаем данные из JSON
 $jsonData = file_get_contents('php://input');
